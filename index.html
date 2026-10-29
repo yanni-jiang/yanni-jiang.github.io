@@ -1,69 +1,356 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111820">
+  <meta name="description" content="Yanni Jiang's UX research portfolio — behavioral science, quantitative and mixed-methods research, and selected projects.">
   <title>Yanni Jiang | UX Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* Change the theme here — the rest of the page uses these variables. */
     :root {
       --bg: #111820;
       --surface: #1D2833;
+      --surface-soft: #17222D;
       --text: #EFF3F6;
-      --muted: #ADBCC9;
-      --accent: #F8971F;
-      --ut-orange: #BF5700;
-      --cool-blue: #9DC3DC;
+      --muted: #ADBBC9;
+      --blue: #94C9E7;
+      --purple: #B7A8D9;
+      --orange: #F8971F;
       --border: #30404D;
+      --content: 1120px;
+      --radius: 20px;
     }
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: Arial, sans-serif;
+      font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
+    a { color: inherit; }
+    button, a, summary { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+    ::selection { background: var(--purple); color: var(--bg); }
+    .container { width: min(var(--content), calc(100% - 64px)); margin-inline: auto; }
 
-    main {
-      max-width: 850px;
-      margin: 0 auto;
-      padding: 100px 24px;
+    /* Navigation */
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(17, 24, 32, .95);
     }
-
-    h1 {
-      font-size: clamp(36px, 6vw, 64px);
-      line-height: 1.15;
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
-
-    p {
-      font-size: 18px;
-      line-height: 1.7;
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      font-size: 21px;
+      letter-spacing: -.04em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .logo-dot { color: var(--orange); }
+    .site-nav { display: flex; align-items: center; flex-wrap: wrap; gap: clamp(16px, 2.7vw, 33px); }
+    .site-nav a {
       color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color .2s ease;
     }
+    .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--blue); }
+    .site-nav .contact-link {
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 9px 15px;
+      border-radius: 999px;
+    }
+    .site-nav .contact-link:hover { border-color: var(--blue); }
 
-    .label {
-      color: var(--accent);
-      font-weight: bold;
-      letter-spacing: 1px;
-      font-size: 13px;
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(270px, .7fr);
+      align-items: center;
+      gap: clamp(30px, 6vw, 100px);
+      padding-block: clamp(80px, 11vw, 155px) clamp(85px, 10vw, 140px);
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .eyebrow .dot { width: 7px; height: 7px; background: var(--orange); border-radius: 50%; flex: 0 0 auto; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: "Space Grotesk", sans-serif; }
+    h1 { max-width: 850px; font-size: clamp(43px, 5.4vw, 78px); line-height: 1.07; letter-spacing: -.055em; margin: 26px 0; font-weight: 600; }
+    h1 .highlight { color: var(--blue); }
+    .intro { color: var(--muted); font-size: clamp(17px, 1.45vw, 19px); line-height: 1.85; max-width: 670px; }
+    .intro strong { color: var(--text); font-weight: 600; }
+    .hero-actions { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; margin-top: 33px; }
+    .button {
+      text-decoration: none;
+      display: inline-flex;
+      gap: 11px;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 21px;
+      border-radius: 10px;
+      background: var(--blue);
+      color: var(--bg);
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); background: #B3DDF3; }
+    .text-link { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 600; border-bottom: 1px solid transparent; padding-bottom: 3px; }
+    .text-link:hover { color: var(--purple); border-color: var(--purple); }
+    .hero-aside { position: relative; padding: 29px; border: 1px solid var(--border); background: linear-gradient(160deg, #1B2836, #151E29); border-radius: 24px; }
+    .aside-top { display: flex; justify-content: space-between; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; }
+    .aside-art { width: 100%; margin: 20px auto 16px; display: block; }
+    .aside-caption { color: var(--text); font-size: 16px; font-weight: 600; line-height: 1.5; }
+    .aside-sub { color: var(--muted); font-size: 13px; line-height: 1.6; margin: 7px 0 0; }
+
+    /* Sections and cards */
+    section { scroll-margin-top: 26px; }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 28px; }
+    .section-kicker { color: var(--purple); text-transform: uppercase; letter-spacing: .15em; font-size: 11px; font-weight: 700; margin-bottom: 12px; }
+    h2 { font-size: clamp(30px, 3vw, 42px); letter-spacing: -.045em; line-height: 1.15; margin-bottom: 0; }
+    .section-note { color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .projects { border-top: 1px solid var(--border); padding-top: 74px; padding-bottom: 108px; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
+    .project-card { min-width: 0; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); transition: border-color .2s ease, transform .2s ease; }
+    .project-card:hover { border-color: #587084; transform: translateY(-3px); }
+    .project-art { background: var(--surface-soft); min-height: 215px; display: grid; place-items: center; overflow: hidden; border-bottom: 1px solid var(--border); }
+    .project-art svg { width: min(100%, 440px); height: auto; max-height: 215px; }
+    .project-body { padding: 26px 26px 24px; }
+    .project-type { color: var(--purple); letter-spacing: .11em; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+    .project-body h3 { font-size: 23px; letter-spacing: -.035em; line-height: 1.25; margin: 12px 0; }
+    .project-desc { color: var(--muted); font-size: 14px; line-height: 1.75; margin-bottom: 20px; }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .tag { border: 1px solid var(--border); border-radius: 30px; padding: 6px 10px; color: var(--muted); font-size: 11px; }
+    details { border-top: 1px solid var(--border); padding-top: 15px; }
+    summary { cursor: pointer; color: var(--blue); font-size: 13px; font-weight: 700; list-style-position: inside; }
+    details p { color: var(--muted); font-size: 13px; line-height: 1.75; margin: 12px 0 0; }
+
+    /* Beyond section */
+    .beyond { border-top: 1px solid var(--border); padding: 74px 0 96px; }
+    .beyond-inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(40px, 7vw, 95px); }
+    .beyond h2 { margin-bottom: 18px; }
+    .beyond p { color: var(--muted); font-size: 16px; line-height: 1.85; max-width: 460px; }
+    .hobby-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .hobby-tile { border: 1px solid var(--border); border-radius: 16px; min-height: 210px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; background: #1B2733; }
+    .hobby-tile:nth-child(2) { background: #222735; }
+    .hobby-tile svg { width: 74px; height: 74px; align-self: center; margin-top: 24px; }
+    .hobby-tile span { display: block; color: var(--text); font-size: 14px; font-weight: 600; }
+    .hobby-tile small { display: block; color: var(--muted); font-size: 11px; margin-top: 5px; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 18px; padding: 28px 0 38px; }
+    .footer-inner p { color: var(--muted); font-size: 12px; margin: 0; }
+    .footer-inner a { color: var(--blue); text-decoration: none; font-size: 13px; font-weight: 600; }
+    .footer-inner a:hover { text-decoration: underline; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-block: 80px 90px; }
+      .hero-aside { display: none; }
+      .beyond-inner { grid-template-columns: 1fr; }
+      .beyond p { max-width: 650px; }
+    }
+    @media (max-width: 640px) {
+      .container { width: min(var(--content), calc(100% - 36px)); }
+      .header-inner { align-items: flex-start; flex-direction: column; justify-content: center; gap: 14px; padding-block: 20px; }
+      .site-nav { gap: 18px; }
+      .site-nav .contact-link { padding: 0; border: 0; }
+      .hero { padding-block: 70px 76px; }
+      h1 { font-size: clamp(42px, 11vw, 58px); }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-body { padding: 22px; }
+      .projects { padding-top: 58px; padding-bottom: 75px; }
+      .beyond { padding: 58px 0 75px; }
+      .hobby-tile { min-height: 175px; padding: 14px; }
+      .hobby-tile svg { width: 65px; height: 65px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <div class="label">
-      UX RESEARCH · BEHAVIORAL SCIENCE
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#home" aria-label="Yanni Jiang, home">Yanni Jiang<span class="logo-dot">.</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#home" aria-current="page">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#beyond">Beyond</a>
+        <a class="contact-link" href="mailto:yanni.jiang@utexas.edu">Contact ↗</a>
+      </nav>
     </div>
+  </header>
 
-    <h1>Curious minds ask better questions.</h1>
+  <main id="home">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div>
+        <div class="eyebrow"><span class="dot" aria-hidden="true"></span> UX Research · Behavioral Science</div>
+        <h1 id="hero-title">Curious minds ask <span class="highlight">better questions.</span></h1>
+        <p class="intro">Hi, I'm <strong>Yanni</strong>, a Psychology PhD student at <strong>The University of Texas at Austin</strong>. I combine experiments, surveys, interviews, and data analysis to understand how people think, make decisions, and interact with others.</p>
+        <div class="hero-actions">
+          <a class="button" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#beyond">A little beyond research ↗</a>
+        </div>
+      </div>
 
-    <p>
-      Hi, I'm Yanni — a Psychology PhD candidate
-      and UX researcher exploring how people
-      think, decide, and behave.
-    </p>
+      <aside class="hero-aside" aria-label="Research philosophy illustration">
+        <div class="aside-top"><span>Field notes</span><span>01 / 03</span></div>
+        <svg class="aside-art" viewBox="0 0 280 230" role="img" aria-label="A conceptual diagram connecting questions, evidence, and insights">
+          <defs>
+            <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#94C9E7"/>
+              <stop offset="1" stop-color="#B7A8D9"/>
+            </linearGradient>
+          </defs>
+          <path d="M61 68 C128 15 166 35 220 90 S177 185 110 182 S22 138 61 68" fill="none" stroke="url(#lineGradient)" stroke-width="1.5" opacity=".75"/>
+          <path d="M61 68 L220 90 L110 182 Z" fill="none" stroke="#6F8294" stroke-width="1.2" stroke-dasharray="4 6" opacity=".7"/>
+          <circle cx="61" cy="68" r="10" fill="#94C9E7"/>
+          <circle cx="220" cy="90" r="10" fill="#B7A8D9"/>
+          <circle cx="110" cy="182" r="10" fill="#94C9E7"/>
+          <circle cx="61" cy="68" r="23" fill="none" stroke="#94C9E7" opacity=".25"/>
+          <circle cx="220" cy="90" r="23" fill="none" stroke="#B7A8D9" opacity=".25"/>
+          <circle cx="110" cy="182" r="23" fill="none" stroke="#94C9E7" opacity=".25"/>
+          <g fill="#CBD8E2" font-family="DM Sans, sans-serif" font-size="11">
+            <text x="21" y="32">ASK</text>
+            <text x="215" y="52">TEST</text>
+            <text x="127" y="217">CONNECT</text>
+          </g>
+        </svg>
+        <div class="aside-caption">From better questions to clearer insights.</div>
+        <p class="aside-sub">Curiosity guides the question. Evidence shapes the answer.</p>
+      </aside>
+    </section>
 
-    <p>Welcome to my little corner of the internet.</p>
+    <section class="projects container" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Selected research</div>
+          <h2 id="projects-title">Projects</h2>
+        </div>
+        <p class="section-note">A few questions I've explored.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-art">
+            <svg viewBox="0 0 440 215" role="img" aria-label="Abstract blue and lavender neural patterns, not actual study data">
+              <g fill="none" stroke-width="1.7" opacity=".95">
+                <ellipse cx="220" cy="107" rx="137" ry="70" stroke="#94C9E7" transform="rotate(-11 220 107)"/>
+                <ellipse cx="220" cy="107" rx="118" ry="59" stroke="#B7A8D9" transform="rotate(-5 220 107)"/>
+                <ellipse cx="220" cy="107" rx="97" ry="49" stroke="#94C9E7" transform="rotate(7 220 107)"/>
+                <ellipse cx="220" cy="107" rx="77" ry="39" stroke="#B7A8D9" transform="rotate(-8 220 107)"/>
+                <ellipse cx="220" cy="107" rx="56" ry="28" stroke="#94C9E7" transform="rotate(13 220 107)"/>
+                <ellipse cx="220" cy="107" rx="36" ry="17" stroke="#B7A8D9"/>
+              </g>
+              <circle cx="220" cy="107" r="5" fill="#94C9E7"/>
+              <circle cx="335" cy="49" r="2.7" fill="#F8971F"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="project-type">01 / Experimental research</div>
+            <h3>Same Score, Different Story</h3>
+            <p class="project-desc">When social and monetary rewards lead to similar outcomes, are they really interchangeable?</p>
+            <div class="tags"><span class="tag">Behavioral experiments</span><span class="tag">Quantitative analysis</span><span class="tag">fMRI</span></div>
+            <details>
+              <summary>Project snapshot</summary>
+              <p>A controlled study of 107 adults found comparable behavioral effects of social and monetary rewards, alongside differences in finer-grained neural response patterns. First-author research published in 2026. A full case study page is coming next.</p>
+            </details>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-art">
+            <svg viewBox="0 0 440 215" role="img" aria-label="Conceptual network illustrating paths and decision points, not study data">
+              <g fill="none" stroke="#60778A" stroke-width="1.3" opacity=".65">
+                <path d="M80 150 L145 88 L213 123 L279 56 L365 100"/>
+                <path d="M80 150 L190 167 L279 56 M145 88 L190 167 L365 100 M213 123 L365 100" stroke-dasharray="5 7"/>
+              </g>
+              <path d="M80 150 L145 88 L213 123 L279 56 L365 100" fill="none" stroke="#94C9E7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <g fill="#B7A8D9">
+                <circle cx="80" cy="150" r="8"/><circle cx="145" cy="88" r="8"/>
+                <circle cx="213" cy="123" r="8"/><circle cx="279" cy="56" r="8"/>
+                <circle cx="365" cy="100" r="8"/>
+              </g>
+              <circle cx="190" cy="167" r="5" fill="#94C9E7"/>
+              <circle cx="365" cy="100" r="3" fill="#F8971F"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="project-type">02 / Applied research</div>
+            <h3>Understanding Founder Needs at Boxsy</h3>
+            <p class="project-desc">Exploring founder workflows, adoption barriers, and opportunities to make an AI-powered platform more useful.</p>
+            <div class="tags"><span class="tag">User research</span><span class="tag">Surveys</span><span class="tag">Competitive analysis</span></div>
+            <details>
+              <summary>Project snapshot</summary>
+              <p>Applied research combining founder feedback, survey evidence, and competitive analysis to inform product positioning and research priorities. The full case study will be added after the findings are finalized for public sharing.</p>
+            </details>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="beyond" id="beyond" aria-labelledby="beyond-title">
+      <div class="container beyond-inner">
+        <div>
+          <div class="section-kicker">Outside of research</div>
+          <h2 id="beyond-title">A little beyond the data.</h2>
+          <p>When I'm not researching, I enjoy baking and capturing little moments through photography. A few of my favorite things will find a home here.</p>
+        </div>
+        <div class="hobby-grid">
+          <div class="hobby-tile">
+            <svg viewBox="0 0 80 80" aria-hidden="true">
+              <path d="M16 49 C20 35 60 35 64 49 L60 65 H20 Z" fill="none" stroke="#B7A8D9" stroke-width="2.3" stroke-linejoin="round"/>
+              <path d="M23 42 C23 27 35 23 40 30 C47 20 60 28 57 42" fill="none" stroke="#94C9E7" stroke-width="2.3" stroke-linecap="round"/>
+              <path d="M31 20 C28 16 30 10 33 8 M46 20 C43 16 45 10 48 8" stroke="#94C9E7" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </svg>
+            <div><span>From my kitchen</span><small>Baking</small></div>
+          </div>
+          <div class="hobby-tile">
+            <svg viewBox="0 0 80 80" aria-hidden="true">
+              <rect x="13" y="25" width="54" height="39" rx="7" fill="none" stroke="#B7A8D9" stroke-width="2.3"/>
+              <circle cx="40" cy="45" r="13" fill="none" stroke="#94C9E7" stroke-width="2.3"/>
+              <circle cx="40" cy="45" r="6" fill="none" stroke="#94C9E7" stroke-width="1.5"/>
+              <path d="M25 25 L30 18 H48 L53 25" fill="none" stroke="#B7A8D9" stroke-width="2.3" stroke-linejoin="round"/>
+            </svg>
+            <div><span>Through my lens</span><small>Photography</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Yanni Jiang · Made with curiosity.</p>
+      <a href="mailto:yanni.jiang@utexas.edu">Let's connect ↗</a>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
