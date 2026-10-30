@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111820">
-  <meta name="description" content="Same Score, Different Story — a quantitative research case study by Yanni Jiang comparing anticipation of social and monetary rewards.">
+  <meta name="description" content="Same Score, Different Story — a quantitative research case study by Yanni Jiang comparing social and monetary reward processing during anticipation.">
   <title>Same Score, Different Story | Yanni Jiang</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -233,6 +233,66 @@
       html { scroll-behavior:auto; }
       *, *::before, *::after { transition-duration:0.01ms !important; animation-duration:0.01ms !important; }
     }
+
+    /* V3: source-faithful editorial layout */
+    .story-content .story-section { padding-bottom:64px; margin-bottom:63px; }
+    .story-content h3 { margin:33px 0 15px; }
+    .story-section p { margin-bottom:17px; }
+    .story-content .section-intro { max-width:760px; }
+    .app-example { margin:23px 0 26px; padding:15px 23px; border-left:3px solid var(--blue); background:linear-gradient(90deg,rgba(148,201,231,.07),transparent); border-radius:0 12px 12px 0; }
+    .app-example p { color:var(--text); font-size:15.5px; margin:0; line-height:1.8; }
+    .summary-original { max-width:100%; margin:-53px 0 61px; border:0; padding:0; }
+    .summary-original summary { display:inline-flex; font-size:12px; color:var(--blue); }
+    .summary-original p,.summary-original li { font-size:13px; line-height:1.7; }
+    .summary-original .source-list { padding-left:19px; }
+    .source-list { margin:19px 0 20px; padding-left:22px; color:var(--muted); }
+    .source-list li { margin:0 0 15px; padding-left:4px; }
+    .source-list p,.source-list div { margin:0; font-size:14px; line-height:1.7; }
+    .research-questions { margin:18px 0 20px; padding-left:22px; }
+    .research-questions li { margin-bottom:11px; color:var(--purple); padding-left:8px; }
+    .research-questions li div { color:var(--text); font-size:14.5px; line-height:1.7; }
+    .table-scroll { width:100%; overflow:auto; margin:21px 0; border:1px solid var(--border); border-radius:13px; }
+    .source-table { width:100%; min-width:540px; border-collapse:collapse; line-height:1.55; font-size:13px; }
+    .source-table th,.source-table td { padding:13px 15px; border-bottom:1px solid var(--border); text-align:left; vertical-align:top; color:var(--muted); font-weight:400; }
+    .source-table tr:last-child>* { border-bottom:0; }
+    .source-table th { color:var(--text); font-weight:650; background:rgba(148,201,231,.045); }
+    .source-table tr:first-child th { color:var(--purple); }
+    .overview-details { margin:22px 0 34px; }
+    .overview-details .source-table { min-width:520px; }
+    .overview-details .source-table th { width:145px; color:var(--purple); }
+    .three-gaps { margin:25px 0 25px; }
+    .three-gaps .gap-item { min-width:0; }
+    .gap-item div[data-source-paragraph] { color:var(--muted); font-size:13px; line-height:1.7; }
+    .why-matters { padding:2px 0 2px 18px; border-left:2px solid var(--orange); margin:30px 0 40px; }
+    .why-matters p { margin:0; }
+    .subhead-copy { margin-top:30px !important; color:var(--text); font-weight:700; }
+    .role-list { margin:18px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:17px 0; }
+    .role-line p { margin:0; }
+    .last-note { padding-top:22px; }
+    .last-note p { color:var(--text); }
+    .method-detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:25px; margin-top:22px; }
+    .method-detail-grid>div { padding-top:14px; border-top:2px solid var(--border); }
+    .method-detail-grid p { font-size:14px; }
+    .method-accordion { margin:22px 0; }
+    .method-accordion summary { font-size:13px; }
+    .finding h3[data-source-paragraph] { margin:0 0 18px; }
+    .finding .interpretation { margin-top:17px; }
+    .interpretation p { margin:0; color:var(--text); font-size:14px; }
+    .evidence-compare { margin:25px 0 20px; }
+    .hypothesis-content { color:var(--text); font-size:14px; line-height:1.75; margin-bottom:12px; }
+    .hypothesis-item { grid-template-columns:35px 1fr; }
+    .hypothesis-head { display:flex; gap:16px; justify-content:space-between; color:var(--soft); text-transform:uppercase; letter-spacing:.09em; font-size:10px; padding:10px 0; }
+    .confidence { line-height:1.6; }
+    .small-caveat { margin:23px 0 33px; }
+    .contribution-list { border-top:1px solid var(--border); margin:12px 0 26px; }
+    .contribution-item { display:grid; grid-template-columns:28px 1fr; gap:13px; padding:18px 0; border-bottom:1px solid var(--border); }
+    .contrib-icon { color:var(--purple); }
+    .contribution-item p { margin:0; font-size:14px; }
+    .small-section-label { color:var(--blue) !important; font-size:12px !important; text-transform:uppercase; letter-spacing:.12em; font-weight:700; margin-top:22px; }
+    .reflection { margin-top:34px; background:linear-gradient(120deg,rgba(148,201,231,.085),rgba(183,168,217,.08)); border:1px solid var(--border); border-radius:16px; padding:28px; }
+    .reflection p { color:var(--text); font-size:18px; font-weight:500; line-height:1.65; margin:0; }
+    @media(max-width:680px) { .three-gaps,.method-detail-grid { grid-template-columns:1fr; } .source-table { min-width:475px; } .summary-original { margin-top:-35px; } .story-content .story-section { margin-bottom:47px; padding-bottom:48px; } }
+
   </style>
 </head>
 <body>
@@ -258,7 +318,7 @@
             <div class="eyebrow"><span class="little-dot" aria-hidden="true"></span> Experimental research · Quantitative UX skills</div>
             <h1 id="case-title">Same Score,<br>Different Story.</h1>
             <p class="hero-subtitle">Is a “Like” the Same Lever as Money?</p>
-            <p class="hero-lead">When two incentives produce similar results, does that mean they work the same way? I tested this question in a controlled lab study of social and monetary reward anticipation.</p>
+            <p class="hero-lead">When two incentives produce similar behavioral outcomes, does that mean they work the same way? I investigated this question in a controlled lab study comparing social and monetary reward processing.</p>
           </div>
           <figure class="hero-figure">
             <svg viewBox="0 0 350 315" role="img" aria-label="Conceptual illustration: overlapping overall levels, different response patterns; not actual brain data">
@@ -279,181 +339,235 @@
         <div class="hero-facts" aria-label="Case study details">
           <div><div class="fact-label">Role</div><div class="fact-value">Lead analyst · First author</div></div>
           <div><div class="fact-label">Sample</div><div class="fact-value">107 adults, 30–45</div></div>
-          <div><div class="fact-label">Methods</div><div class="fact-value">Experiment · Survey · fMRI</div></div>
+          <div><div class="fact-label">Methods</div><div class="fact-value">Behavioral Task · Survey · fMRI</div></div>
           <div><div class="fact-label">Context</div><div class="fact-value">UT Austin · NSF-funded · 2023–26</div></div>
         </div>
       </div>
     </section>
     <div class="container">
       <aside class="quick-take" aria-label="Executive summary">
-        <div><div class="kicker">The short version</div><h2>Same on the surface.<br>Different underneath.</h2></div>
-        <div class="take-list">
-          <div class="take-line"><b>01</b><span><strong>Surface:</strong> Rewards showed comparable behavioral benefits and substantially overlapping average neural responses.</span></div>
-          <div class="take-line"><b>02</b><span><strong>Patterns:</strong> More fine-grained analysis identified reward-related neural differences.</span></div>
-          <div class="take-line"><b>03</b><span><strong>People:</strong> Need to Belong related to relative neural responses, but not to measured behavior.</span></div>
-        </div>
-      </aside>
+  <div><div class="kicker">The short version</div><h2>Same on the surface.<br>Different underneath.</h2></div>
+  <div class="take-list">
+    <div class="take-line"><b>01</b><span><strong>Surface:</strong> Social and monetary rewards showed comparable behavioral benefits and substantially overlapping average neural responses.</span></div>
+    <div class="take-line"><b>02</b><span><strong>Patterns:</strong> More fine-grained analysis identified neural differences between social and monetary reward anticipation.</span></div>
+    <div class="take-line"><b>03</b><span><strong>People:</strong> People with a higher need to belong showed a stronger neural response to social (relative to monetary) reward, even though this did not show up in their behavior.</span></div>
+  </div>
+</aside>
+<details class="summary-original"><summary>Read the complete short version and its caveats</summary>
+  <p data-source-paragraph="4">The short version. In this study, social and monetary rewards looked interchangeable on the surface but not underneath, which suggests that similar top-line results do not guarantee the same underlying response:</p>
+  <ul class="source-list"><li><div data-source-paragraph="5">Same on the surface. Anticipating social and monetary rewards produced comparable behavioral boosts and largely overlapping average neural responses, so a conventional top-line evaluation might have treated them as interchangeable.</div></li><li><div data-source-paragraph="6">Different underneath. A finer-grained analysis could tell the two reward types apart from patterns of brain activity.</div></li><li><div data-source-paragraph="7">Different for some people. People with a higher need to belong showed a stronger neural response to social (relative to monetary) reward, even though this did not show up in their behavior. This is a correlation from a single lab study, so belonging is worth examining as a possible dimension for segmentation, not treated as an established one.</div></li></ul>
+</details>
       <div class="case-layout">
         <aside class="toc" aria-label="On this page">
           <div class="toc-heading">In this case study</div>
           <nav id="desktop-toc">
-            <a href="#challenge"><span>01</span> The challenge</a>
+            <a href="#challenge"><span>01</span> The question</a>
             <a href="#role"><span>02</span> My role</a>
             <a href="#approach"><span>03</span> The approach</a>
             <a href="#findings"><span>04</span> Findings</a>
-            <a href="#implications"><span>05</span> Product thinking</a>
+            <a href="#implications"><span>05</span> Interpretation</a>
             <a href="#impact"><span>06</span> Impact & next steps</a>
           </nav>
           <div class="toc-foot">A controlled academic study.<br>Product implications are hypotheses, not validated outcomes.</div>
         </aside>
         <article class="story-content">
-          <details class="mobile-toc"><summary>Jump to a section</summary><nav class="mobile-links" aria-label="Mobile section navigation"><a href="#challenge">01 · The challenge</a><a href="#role">02 · My role</a><a href="#approach">03 · Approach</a><a href="#findings">04 · Findings</a><a href="#implications">05 · Product thinking</a><a href="#impact">06 · Impact</a></nav></details>
+          <details class="mobile-toc"><summary>Jump to a section</summary><nav class="mobile-links" aria-label="Mobile section navigation"><a href="#challenge">01 · The question</a><a href="#role">02 · My role</a><a href="#approach">03 · Approach</a><a href="#findings">04 · Findings</a><a href="#implications">05 · Interpretation</a><a href="#impact">06 · Impact</a></nav></details>
           <section id="challenge" class="story-section" aria-labelledby="challenge-title">
-            <div class="kicker">01 / The challenge</div>
-            <h2 id="challenge-title">Can similar averages hide meaningful differences?</h2>
-            <p class="section-intro">A widely held neuroscience account proposes that social and monetary rewards draw on shared reward-related systems. But similar average activation does not, by itself, establish identical underlying processing.</p>
-            <p>In product terms, it is like seeing similar top-line engagement from recognition and reward points and assuming they are interchangeable. I wanted to test what might be missed by that conclusion.</p>
-            <div class="three-gaps" aria-label="Research gaps">
-              <div class="gap-item"><div class="num">01</div><h3>Indirect comparisons</h3><p>Earlier studies often involved different people, tasks, and incentives.</p></div>
-              <div class="gap-item"><div class="num">02</div><h3>Aggregate measures</h3><p>Averages may hide distinctions in patterns of response.</p></div>
-              <div class="gap-item"><div class="num">03</div><h3>Different motivations</h3><p>People vary in how much they value social approval.</p></div>
-            </div>
-          </section>
+    <div class="kicker">01 / The question &amp; context</div>
+    <h2 id="challenge-title" data-source-paragraph="1">The question</h2>
+    <p data-source-paragraph="2">Product teams often use both social recognition and monetary incentives to motivate behavior. When both rewards produce similar top-line results, should teams treat them as interchangeable? I investigated a controlled laboratory version of this question by comparing how 107 adults anticipated social and monetary rewards.</p>
+<blockquote class="app-example" aria-label="Product example"><p data-source-paragraph="3">Picture an app where friend kudos and reward points both lift engagement by the same amount. The averages match, but are people being motivated in the same way? This project looked beneath the average to find out.</p></blockquote>
+<details class="overview-details"><summary>Study overview · context, role, participants, methods, tools</summary>
+<h3 data-source-paragraph="8">Overview</h3>
+<div class="table-scroll"><table class="source-table"><tr><th data-source-cell="9-0-0" scope="row">Context</th><td data-source-cell="9-0-1">NSF-funded academic research at UT Austin (behavioral and neuroimaging)</td></tr><tr><th data-source-cell="9-1-0" scope="row">Role</th><td data-source-cell="9-1-1">Lead analyst and first author on a six-person team</td></tr><tr><th data-source-cell="9-2-0" scope="row">Participants</th><td data-source-cell="9-2-1">107 adults aged 30–45</td></tr><tr><th data-source-cell="9-3-0" scope="row">Design</th><td data-source-cell="9-3-1">Within-subject controlled experiment; each participant experienced both reward types</td></tr><tr><th data-source-cell="9-4-0" scope="row">Methods</th><td data-source-cell="9-4-1">Behavioral metrics · Attitudinal survey · Neuroimaging (fMRI)</td></tr><tr><th data-source-cell="9-5-0" scope="row">Analysis</th><td data-source-cell="9-5-1">Group comparisons · Machine-learning pattern analysis · Functional connectivity · Individual differences</td></tr><tr><th data-source-cell="9-6-0" scope="row">Tools</th><td data-source-cell="9-6-1">Qualtrics · PsychoPy · R · Python (scikit-learn) · MATLAB · fMRIPrep · FSL · CONN</td></tr><tr><th data-source-cell="9-7-0" scope="row">Timeline</th><td data-source-cell="9-7-1">2023–2026</td></tr><tr><th data-source-cell="9-8-0" scope="row">Outcome</th><td data-source-cell="9-8-1">First-author publication, Journal of Cognitive Neuroscience (2026)</td></tr></table></div>
+</details>
+<h3 data-source-paragraph="10">Why the “common currency” view deserves a closer look</h3>
+<p data-source-paragraph="11">A prevailing idea in cognitive neuroscience is the “common currency” view: social rewards (such as approval) and non-social rewards (such as money) are processed by a largely shared neural system. Support for this view comes mostly from studies that find similar average activation in the same brain regions for both kinds of reward.</p>
+<p data-source-paragraph="12">Product teams often reason in a parallel way. When two incentives produce a similar lift in a top-line metric, it is tempting to conclude that they work through the same underlying mechanism, and that either one will do.</p>
+<p data-source-paragraph="13">However, similar overall responses do not by themselves show a shared system, and the evidence behind this inference had three gaps:</p>
+<div class="three-gaps" aria-label="Three research gaps">
+<div class="gap-item"><div class="num">01</div><div data-source-paragraph="14">Indirect comparisons. Many conclusions were drawn across separate studies using different participants, tasks, and reward types. That is closer to comparing two product experiments run on different user populations than testing the alternatives head-to-head.</div></div>
+<div class="gap-item"><div class="num">02</div><div data-source-paragraph="15">One aggregate metric. Most studies relied on a single summary measure. Similar averages can still hide meaningful differences in the patterns producing them.</div></div>
+<div class="gap-item"><div class="num">03</div><div data-source-paragraph="16">User heterogeneity. People differ in how much social approval motivates them compared with a tangible payoff. Averaging across people can make two rewards look alike even when they motivate different people in different ways, and few studies measured how much people actually care about social reward.</div></div>
+</div>
+<div class="why-matters"><p data-source-paragraph="17"><strong>Why it matters.</strong> If two incentives look equivalent at the top line but work differently underneath, treating them as interchangeable could lead to poor product decisions, such as removing a social feature that matters to some users, or reading a flat A/B test as evidence that the underlying experience is the same.</p></div>
+<h3 data-source-paragraph="27">The decision and research questions</h3>
+<p data-source-paragraph="28">The decision this project informs: when social and monetary incentives produce similar top-line results, should teams treat them as interchangeable, or test them separately, including for different types of users?</p>
+<p data-source-paragraph="29">I broke this decision into three questions, moving from aggregate outcomes to individual differences:</p>
+<ol class="research-questions"><li><div data-source-paragraph="30">Surface: Do social and monetary rewards produce the same observable behavior and similar average neural responses?</div></li><li><div data-source-paragraph="31">Underneath: If the two rewards look similar at the surface, can a more fine-grained measure reveal differences that the top-line metric misses?</div></li><li><div data-source-paragraph="32">Segment: Do individual differences, specifically how strongly someone values social belonging, relate to how they respond to each reward?</div></li></ol>
+<p data-source-paragraph="33">Each question required a different kind of evidence, which shaped the study design.</p>
+    </section>
           <section id="role" class="story-section" aria-labelledby="role-title">
-            <div class="kicker">02 / Ownership</div>
-            <h2 id="role-title">What I owned — and how I worked with others.</h2>
-            <p>I was the lead analyst and first author on a six-person team. The principal investigator established the larger research framework and core design; I owned the study execution, analytical decisions, synthesis, and dissemination.</p>
-            <div class="ownership">
-              <div class="ownership-main"><h3>My contribution</h3><p>Led recruitment and more than 500 hours of study execution; applied data-quality criteria; built the analysis pipeline; reconciled findings across methods; visualized results; and communicated them through a journal article, talks, and research showcases.</p></div>
-              <div class="ownership-side"><h3>Team context</h3><p>Initial concept, core experiment, funding, and target sample size belonged to the larger NSF-funded project.</p></div>
-            </div>
-            <details><summary>The methodological decision I helped navigate</summary><p>When the team needed an unfamiliar multivariate approach, I initiated a collaboration with a lab that had relevant expertise. Their researchers recommended a four-way classification rather than indirectly comparing two separate two-way models. I implemented and piloted the approach, evaluated validation choices, and brought evidence and tradeoffs to structured check-ins with senior collaborators.</p></details>
-          </section>
+    <div class="kicker">02 / My role</div>
+    <h2 id="role-title" data-source-paragraph="18">My role</h2>
+    <p data-source-paragraph="19" class="section-intro">I was the lead analyst and first author on a six-person research team. The PI established the broader research framework as part of a larger NSF-funded project, while my ownership centered on study execution, analysis, interpretation, and dissemination.</p>
+<div class="ownership">
+<div class="ownership-main"><h3>My ownership</h3><p data-source-paragraph="20"><strong>I owned:</strong> participant recruitment and study execution (500+ hours), data-quality and exclusion decisions, the end-to-end analysis pipeline, reconciling findings across methods, data visualization, and communicating findings across audiences through a peer-reviewed journal article, departmental talks, and research showcases.</p></div>
+<div class="ownership-side"><h3>Research context</h3><p data-source-paragraph="21"><strong>I inherited:</strong> the initial research concept, core experimental design, funding, and target sample size.</p></div>
+</div>
+<p data-source-paragraph="22" class="subhead-copy">How I worked with the team. </p>
+<div class="role-list">
+<div class="role-line"><p data-source-paragraph="24"><strong>Kept senior stakeholders aligned.</strong> Three professors from different research backgrounds had limited time, so I ran short, structured check-ins: where we are, what is blocking us, and what I recommend next.</p></div>
+</div>
+<details class="method-accordion"><summary>Collaboration and analytical decisions · full detail</summary>
+<ul class="source-list"><li><div data-source-paragraph="23">Spotted a capability gap and closed it. The project needed an analysis method our lab had not used, so I facilitated a collaboration with another lab that had more experience with it. Until then I had assumed the interaction could only be tested by running two separate two-way classifications and subtracting them, which is an indirect approach. Their PI and students suggested a four-way classification instead, advised on parameter choices while I built it, and checked my analysis.</div></li><li><div data-source-paragraph="25">Made decisions easier with evidence. When we had to choose between analysis approaches, I piloted several options and presented the results together, so the decision-makers could choose based on evidence. For example, I first ran the two two-way classifications, which gave preliminary results and made clear that this was not the most direct test of the interaction. For validation, the standard option (training on one run and testing on the other) would have left too little training data with only two runs, so I proposed training on all but one participant instead and piloted it on several participants before we committed.</div></li></ul>
+</details>
+<div class="last-note"><p data-source-paragraph="26">This is the habit I would bring to product teams: come with options and evidence, and keep stakeholders aligned in minutes, not hours.</p></div>
+    </section>
           <section id="approach" class="story-section" aria-labelledby="approach-title">
-            <div class="kicker">03 / Research design</div>
-            <h2 id="approach-title">Same people. Both rewards. Multiple measures.</h2>
-            <p class="section-intro">All 107 adults experienced both social and monetary reward conditions, letting us compare them within the same participants.</p>
-            <div class="process" aria-label="Simplified experimental trial flow">
-              <div class="process-node"><div class="step">STEP 01</div><strong>See a cue</strong><p>A visual cue indicates the possible social or monetary reward.</p></div>
-              <div class="process-arrow" aria-hidden="true">→</div>
-              <div class="process-node"><div class="step">STEP 02</div><strong>Respond</strong><p>Participants respond quickly to a visual target.</p></div>
-              <div class="process-arrow" aria-hidden="true">→</div>
-              <div class="process-node"><div class="step">STEP 03</div><strong>Receive feedback</strong><p>Social approval or a wallet/coins animation indicates the result.</p></div>
-            </div>
-            <p>Each reward type had a separate no-reward baseline, cues were matched, and adaptive difficulty kept success near half of trials. The measures were chosen to capture different levels of evidence:</p>
-            <div class="method-bottom" aria-label="Research measures">
-              <span class="method-pill">Behavior · hit rate & reaction time</span>
-              <span class="method-pill">Neuroimaging · average activation & patterns</span>
-              <span class="method-pill">Survey · Need to Belong</span>
-            </div>
-            <p class="method-note">Reward anticipation unfolded over roughly 2.5 seconds — a moment that retrospective interviews alone would not capture reliably.</p>
-            <details><summary>Experiment conditions and data-quality details</summary><p><strong>Social feedback:</strong> a smiling face with a thumbs-up for reward, or a neutral expression for no reward. <strong>Monetary feedback:</strong> coins dropping into a wallet for reward, or a closing wallet with no coins. Each reward category had its own neutral baseline video.</p><p><strong>Quality control:</strong> 120 people were recruited; 13 were excluded under predefined criteria for movement, technical issues, or completing fewer than 75% of trials. Final analytic sample: 107.</p></details>
-          </section>
+    <div class="kicker">03 / The approach</div>
+    <h2 id="approach-title" data-source-paragraph="34">Approach: a controlled, head-to-head comparison</h2>
+    <p data-source-paragraph="35" class="section-intro">The design addressed the three gaps directly: the same participants, a controlled comparison, and multiple measures instead of one.</p>
+<p data-source-paragraph="36"><strong>Same people, both rewards.</strong> All 107 adults aged 30–45 experienced both social and monetary rewards, so differences could not come from comparing different groups. Mid-career adults are also less studied in this literature and may be closer to the working-age users many digital products serve.</p>
+<p data-source-paragraph="37"><strong>A controlled comparison.</strong> On each trial, a simple visual cue showed which type of reward (social or monetary) was available, and participants had a brief window to respond to a target on the screen.</p>
+<div class="process" aria-label="Simplified experiment trial sequence; labels describe the experiment but are not additional findings">
+      <div class="process-node"><div class="step">01 / CUE</div><strong>Reward type indicated</strong><p>Social or monetary reward</p></div>
+      <div class="process-arrow" aria-hidden="true">→</div>
+      <div class="process-node"><div class="step">02 / RESPONSE</div><strong>Visual target</strong><p>Brief response window</p></div>
+      <div class="process-arrow" aria-hidden="true">→</div>
+      <div class="process-node"><div class="step">03 / FEEDBACK</div><strong>Reward or no reward</strong><p>Social or monetary feedback</p></div>
+    </div>
+<details class="method-accordion"><summary>Exactly what participants saw in each condition</summary>
+<div class="table-scroll"><table class="source-table"><tr><th data-source-cell="38-0-0" scope="col"></th><th data-source-cell="38-0-1" scope="col">Social feedback</th><th data-source-cell="38-0-2" scope="col">Monetary feedback</th></tr><tr><th data-source-cell="38-1-0" scope="row">Reward received</th><td data-source-cell="38-1-1">Smiling face with a thumbs-up</td><td data-source-cell="38-1-2">Coins dropping into a wallet</td></tr><tr><th data-source-cell="38-2-0" scope="row">Reward missed</th><td data-source-cell="38-2-1">Neutral face with no expression</td><td data-source-cell="38-2-2">Wallet closing with no coins</td></tr><tr><th data-source-cell="38-3-0" scope="row">No-reward baseline</th><td data-source-cell="38-3-1">Neutral video of a person listening to music and snapping fingers</td><td data-source-cell="38-3-2">Neutral video of confetti dropping into a wallet</td></tr></table></div>
+</details>
+<p data-source-paragraph="39">As in any well-controlled experiment, everything else was held constant. Cues were matched across conditions, each reward had its own baseline, and task difficulty adapted so participants succeeded about half the time. This helped isolate the effect of reward type from visual or performance differences.</p>
+<p data-source-paragraph="40"><strong>One measure per question.</strong></p>
+<div class="table-scroll"><table class="source-table"><tr><th data-source-cell="41-0-0" scope="col">Question</th><th data-source-cell="41-0-1" scope="col">Measure</th><th data-source-cell="41-0-2" scope="col">Product relevance</th></tr><tr><th data-source-cell="41-1-0" scope="row">Surface</th><td data-source-cell="41-1-1">Reaction time and hit rate; average neural responses</td><td data-source-cell="41-1-2">Top-line engagement metrics</td></tr><tr><th data-source-cell="41-2-0" scope="row">Underneath</th><td data-source-cell="41-2-1">Multivariate machine-learning classification of activity patterns</td><td data-source-cell="41-2-2">A finer-grained look beyond the average</td></tr><tr><th data-source-cell="41-3-0" scope="row">Segment</th><td data-source-cell="41-3-1">Need to Belong Scale (validated survey)</td><td data-source-cell="41-3-2">An attitudinal measure to compare across users</td></tr></table></div>
+<div class="method-detail-grid">
+<div><p data-source-paragraph="42"><strong>Why not interviews?</strong> The key moment, anticipating a possible reward, lasted only about 2.5 seconds, which is hard to capture through retrospective self-report alone. Pairing objective behavioral and neural measures with a validated survey let me compare what participants said they valued with how they responded in the moment.</p></div>
+<div><p data-source-paragraph="43"><strong>Protecting data quality.</strong> I applied the study’s predefined quality-control criteria, excluding 13 of 120 recruited participants because of excessive movement, technical failure, or completing less than 75% of the task. The final analytic sample included 107 participants.</p></div>
+</div>
+    </section>
           <section id="findings" class="story-section" aria-labelledby="findings-title">
-            <div class="kicker">04 / Key findings</div>
-            <h2 id="findings-title">Three findings. Three levels of resolution.</h2>
-            <p>Instead of relying on one outcome, I examined what was visible at the aggregate level, what emerged from finer-grained patterns, and what varied across participants.</p>
-            <article class="finding">
-              <span class="finding-label">Finding 01 — At the surface</span>
-              <h3>Reward helped performance; the benefit looked similar across reward types.</h3>
-              <p>When any reward was at stake, people were faster and more accurate than in no-reward anticipation. The reward-related behavioral boost did not significantly differ between social and monetary conditions; average neural responses also showed substantial overlap.</p>
-              <div class="finding-visual" role="group" aria-label="Observed behavioral results: pooled across social and monetary conditions, reward versus no-reward anticipation">
-                <div class="visual-label">Observed behavioral results · pooled across reward types</div>
-                <div class="stat-rows">
-                  <div class="stat-col">
-                    <div class="stat-heading">Hit rate</div>
-                    <div class="stat-sub">Higher when a reward was at stake</div>
-                    <div class="bar-row"><span class="bar-label">Reward</span><div class="bar-track"><div class="bar-fill" style="width:50%"></div></div><span class="bar-value">50%</span></div>
-                    <div class="bar-row"><span class="bar-label">No reward</span><div class="bar-track"><div class="bar-fill purple" style="width:45%"></div></div><span class="bar-value">45%</span></div>
-                  </div>
-                  <div class="stat-col">
-                    <div class="stat-heading">Reaction time</div>
-                    <div class="stat-sub">Lower is faster · reward vs. no reward</div>
-                    <div class="rt-pair"><strong class="blue">422</strong><span class="versus">vs.</span><strong class="purple">432</strong><span class="versus">ms</span></div>
-                    <div class="rt-note">Both reward-related effects: p &lt; .001.</div>
-                  </div>
-                </div>
-                <div class="visual-disclaimer">These compare reward vs. no-reward anticipation, pooled across social and monetary types; they are <strong>not</strong> a social-vs-money comparison. Rounded values from the study.</div>
-              </div>
-              <div class="interpretation"><strong>What this means:</strong> Top-line measures made the incentives look largely similar. A nonsignificant difference does not prove equivalence.</div>
-            </article>
-            <article class="finding">
-              <span class="finding-label">Finding 02 — Underneath</span>
-              <h3>More detailed neural patterns distinguished the reward conditions.</h3>
-              <p>A whole-brain multivariate analysis examined four conditions (social reward/no reward and monetary reward/no reward), testing on participants excluded from model training. In several regions, reward-vs-no-reward pattern separation differed between social and monetary conditions, including regions with similar mean activation (corrected p &lt; .05).</p>
-              <div class="finding-visual" role="group" aria-label="Conceptual illustration of different spatial patterns with similar summary values; not observed fMRI data">
-                <div class="visual-label">Why pattern-level analysis adds information</div>
-                <div class="matrix-compare">
-                  <div class="matrix-item">
-                    <div class="matrix-title">Pattern A</div>
-                    <div class="matrix" aria-hidden="true">
-                      <span class="hot"></span><span></span><span></span><span class="hot"></span><span></span>
-                      <span></span><span class="hot"></span><span></span><span></span><span></span>
-                      <span></span><span></span><span class="hot"></span><span></span><span class="hot"></span>
-                      <span></span><span></span><span></span><span class="hot"></span><span></span>
-                      <span class="hot"></span><span></span><span></span><span></span><span class="hot"></span>
-                    </div>
-                    <div class="matrix-sub">8 highlighted positions</div>
-                  </div>
-                  <div class="compare-mark" aria-hidden="true">≠</div>
-                  <div class="matrix-item">
-                    <div class="matrix-title">Pattern B</div>
-                    <div class="matrix two" aria-hidden="true">
-                      <span></span><span class="hot"></span><span></span><span></span><span class="hot"></span>
-                      <span class="hot"></span><span></span><span></span><span class="hot"></span><span></span>
-                      <span></span><span></span><span></span><span></span><span></span>
-                      <span></span><span class="hot"></span><span class="hot"></span><span></span><span></span>
-                      <span></span><span></span><span class="hot"></span><span class="hot"></span><span></span>
-                    </div>
-                    <div class="matrix-sub">Same count, different locations</div>
-                  </div>
-                </div>
-                <div class="visual-disclaimer">Conceptual illustration of information lost when patterns are summarized. <strong>Not</strong> real neural activation maps or classifier outputs.</div>
-              </div>
-              <div class="interpretation"><strong>What this means:</strong> Similar averages can coexist with distinguishable underlying representations. Different does not automatically mean better.</div>
-            </article>
-            <article class="finding">
-              <span class="finding-label">Finding 03 — Differences between people</span>
-              <h3>Need to Belong related to neural sensitivity — not measured behavior.</h3>
-              <p>Higher Need to Belong scores were associated with stronger social-relative-to-monetary neural responses in a reward/social-cognition region (corrected p &lt; .05). No significant association emerged for hit rate or reaction time (all ps &gt; .05).</p>
-              <div class="evidence-compare" aria-label="Comparison of neural and behavioral findings">
-                <div class="evidence positive"><span class="mini-label">Neural measure</span><h4>Association detected</h4><p>Higher Need to Belong → stronger social-relative-to-monetary neural response.</p></div>
-                <div class="evidence neutral"><span class="mini-label">Behavioral measures</span><h4>No significant association detected</h4><p>No significant relation with task hit rate or reaction time.</p></div>
-              </div>
-              <div class="interpretation"><strong>What this means:</strong> Belonging is worth testing as an individual-difference factor, not using as a validated product segment.</div>
-            </article>
-            <details><summary>An additional small effect I chose not to overinterpret</summary><p>Participants were around 4 ms faster when social feedback was possible (425 vs. 429 ms, p = .03). This effect did not significantly depend on whether a reward was at stake, so I did not interpret it as evidence that social reward was more motivating.</p></details>
-          </section>
+    <div class="kicker">04 / What I found</div>
+    <h2 id="findings-title" data-source-paragraph="44">What I found</h2>
+    <p data-source-paragraph="45">Three findings, moving from the surface to the individual.</p>
+<article class="finding">
+<div class="finding-label">FINDING 01 / SURFACE</div>
+<h3 data-source-paragraph="46">1. On the surface, a “like” and money produced comparable results</h3>
+<p data-source-paragraph="47"><strong>What we saw.</strong> When a reward was at stake, participants hit more targets (about 50% vs. 45% of trials) and responded faster (about 422 ms vs. 432 ms), both p &lt; .001. The reward boost did not differ significantly between social and monetary rewards. Average neural responses followed the same pattern: reward anticipation engaged the same reward-related brain regions regardless of reward type, no region showed a significant social-specific reward effect, and connectivity among these reward regions did not differ significantly either.</p>
+<div aria-label="Observed behavioral results: pooled across social and monetary conditions, reward versus no-reward anticipation" class="finding-visual" role="group">
+<div class="visual-label">Observed behavioral results · pooled across reward types</div>
+<div class="stat-rows">
+<div class="stat-col">
+<div class="stat-heading">Hit rate</div>
+<div class="stat-sub">Higher when a reward was at stake</div>
+<div class="bar-row"><span class="bar-label">Reward</span><div class="bar-track"><div class="bar-fill" style="width:50%"></div></div><span class="bar-value">50%</span></div>
+<div class="bar-row"><span class="bar-label">No reward</span><div class="bar-track"><div class="bar-fill purple" style="width:45%"></div></div><span class="bar-value">45%</span></div>
+</div>
+<div class="stat-col">
+<div class="stat-heading">Reaction time</div>
+<div class="stat-sub">Lower is faster · reward vs. no reward</div>
+<div class="rt-pair"><strong class="blue">422</strong><span class="versus">vs.</span><strong class="purple">432</strong><span class="versus">ms</span></div>
+<div class="rt-note">Both reward-related effects: p &lt; .001.</div>
+</div>
+</div>
+<div class="visual-disclaimer">These compare reward vs. no-reward anticipation, pooled across social and monetary types; they are <strong>not</strong> a social-vs-money comparison. Rounded values from the study.</div>
+</div>
+<div class="interpretation"><p data-source-paragraph="48"><strong>What it means.</strong> Judged by top-line results alone, the two incentives would look largely equivalent, and a conventional evaluation might reasonably have treated them as interchangeable.</p></div>
+</article>
+<article class="finding">
+<div class="finding-label">FINDING 02 / PATTERNS</div>
+<h3 data-source-paragraph="49">2. A more fine-grained measure could tell them apart</h3>
+<p data-source-paragraph="50"><strong>What we saw.</strong> A machine-learning analysis searched the whole brain for local activity patterns that could separate four conditions (social reward, social no-reward, monetary reward, monetary no-reward), always testing on a participant the model had not seen during training. In several regions, how well the pattern separated reward from no reward differed between social and monetary rewards. This included regions where average activation had looked similar for both rewards (corrected p &lt; .05).</p>
+<div aria-label="Conceptual illustration of different spatial patterns with similar summary values; not observed fMRI data" class="finding-visual" role="group">
+<div class="visual-label">Why pattern-level analysis adds information</div>
+<div class="matrix-compare">
+<div class="matrix-item">
+<div class="matrix-title">Pattern A</div>
+<div aria-hidden="true" class="matrix">
+<span class="hot"></span><span></span><span></span><span class="hot"></span><span></span>
+<span></span><span class="hot"></span><span></span><span></span><span></span>
+<span></span><span></span><span class="hot"></span><span></span><span class="hot"></span>
+<span></span><span></span><span></span><span class="hot"></span><span></span>
+<span class="hot"></span><span></span><span></span><span></span><span class="hot"></span>
+</div>
+<div class="matrix-sub">8 highlighted positions</div>
+</div>
+<div aria-hidden="true" class="compare-mark">≠</div>
+<div class="matrix-item">
+<div class="matrix-title">Pattern B</div>
+<div aria-hidden="true" class="matrix two">
+<span></span><span class="hot"></span><span></span><span></span><span class="hot"></span>
+<span class="hot"></span><span></span><span></span><span class="hot"></span><span></span>
+<span></span><span></span><span></span><span></span><span></span>
+<span></span><span class="hot"></span><span class="hot"></span><span></span><span></span>
+<span></span><span></span><span class="hot"></span><span class="hot"></span><span></span>
+</div>
+<div class="matrix-sub">Same count, different locations</div>
+</div>
+</div>
+<div class="visual-disclaimer">Conceptual illustration of information lost when patterns are summarized. <strong>Not</strong> real neural activation maps or classifier outputs.</div>
+</div>
+<div class="interpretation"><p data-source-paragraph="51"><strong>What it means.</strong> Matching averages did not guarantee identical underlying responses. In this study, two incentives with similar top-line outcomes still left distinguishable patterns underneath.</p></div>
+</article>
+<article class="finding">
+<div class="finding-label">FINDING 03 / PEOPLE</div>
+<h3 data-source-paragraph="52">3. Social rewards mattered more to some people, and behavior didn’t show it</h3>
+<p data-source-paragraph="53"><strong>What we saw.</strong> Participants with a higher Need to Belong score showed a stronger response to social reward (relative to monetary reward) in a region where reward processing and social cognition intersect (corrected p &lt; .05). Need to Belong did not significantly relate to hit rate or reaction time (all ps &gt; .05).</p>
+<div aria-label="Comparison of neural and behavioral findings" class="evidence-compare">
+<div class="evidence positive"><span class="mini-label">Neural measure</span><h4>Association detected</h4><p>Higher Need to Belong → stronger social-relative-to-monetary neural response.</p></div>
+<div class="evidence neutral"><span class="mini-label">Behavioral measures</span><h4>No significant association detected</h4><p>No significant relation with task hit rate or reaction time.</p></div>
+</div>
+<div class="interpretation"><p data-source-paragraph="54"><strong>What it means.</strong> This is a correlation from a single study, so it does not show that Need to Belong defines a user segment. It does suggest that belonging is worth examining when thinking about segmentation, and that behavioral data alone may not reveal this kind of difference. Pairing behavioral data with attitudinal measures is one way to look for it.</p></div>
+</article>
+<details class="method-accordion"><summary>Additional result I chose not to build on</summary>
+<p data-source-paragraph="55"><strong>A result I chose not to build on.</strong> Participants were about 4 ms faster when social feedback was possible (425 ms vs. 429 ms, p = .03). The effect was small and did not significantly depend on whether a reward was at stake, so it looks like an effect of cue type rather than a reward-specific advantage. I reported it, but did not treat it as evidence for a meaningful reward difference.</p>
+</details>
+<p data-source-paragraph="56" class="method-note">For technical readers: brain regions, models, and statistics are available in the published paper.</p>
+    </section>
           <section id="implications" class="story-section" aria-labelledby="implications-title">
-            <div class="kicker">05 / Synthesis & product thinking</div>
-            <h2 id="implications-title">A useful lesson about what metrics miss.</h2>
-            <div class="synthesis">Similar outcomes don't always imply <em>identical underlying responses.</em></div>
-            <p>The apparent conflict between average and multivariate results was a difference in measurement resolution, not evidence that one reward was necessarily more effective. The product parallels below are <strong>hypotheses to test</strong>, not results from an in-product experiment.</p>
-            <div class="hypothesis-list">
-              <div class="hypothesis-item"><div class="num">01</div><div><h3>Investigate beyond the headline metric</h3><p>When two incentives produce similar engagement, compare usage paths, retention curves, and other granular behavioral evidence before deciding they are interchangeable.</p><div class="confidence">Basis: Findings 1–2 · Confidence: medium, product analogy untested</div></div></div>
-              <div class="hypothesis-item"><div class="num">02</div><div><h3>Combine behavioral and attitudinal evidence</h3><p>Test whether a short motivation measure adds information that clicks or conversion alone miss.</p><div class="confidence">Basis: Finding 3 · Confidence: medium, single-study association</div></div></div>
-              <div class="hypothesis-item"><div class="num">03</div><div><h3>Validate belonging before segmentation</h3><p>Examine whether social incentives affect real-world outcomes differently across users; do not personalize based on the lab finding alone.</p><div class="confidence">Basis: Finding 3 · Confidence: medium–low, correlational</div></div></div>
-            </div>
-            <p class="small-caveat"><strong>Important boundary:</strong> No significant difference is not proof of equivalence; neural distinctions do not establish different product outcomes. This was an academic laboratory study, not an A/B test.</p>
-          </section>
+    <div class="kicker">05 / Interpretation &amp; product thinking</div>
+    <h2 id="implications-title" data-source-paragraph="57">Reconciling “conflicting” signals</h2>
+    
+<p data-source-paragraph="58">At first glance, the results seemed inconsistent: coarse measures suggested the rewards were similar, while more fine-grained measures showed differences. I treated that not as a contradiction, but as a question of measurement resolution.</p>
+<p data-source-paragraph="59">Aggregate measures compress information. Two conditions can produce the same average while differing in the pattern underneath, much as two user journeys can end at the same conversion rate through different paths. Viewed at different levels of resolution, the findings were not contradictory; they were answering different questions.</p>
+<p data-source-paragraph="60">The conclusion: in this study, social and monetary rewards showed substantial overlap at the aggregate level, but they were distinguishable in how they were represented, and the neural difference between them was more pronounced for people with a higher need to belong, though this did not show up in behavior.</p>
+<div class="small-caveat"><p data-source-paragraph="61"><strong>What I didn’t claim.</strong> “No difference detected” is not evidence that two rewards are identical, and “different” does not mean “better.” The study shows that social and monetary rewards can produce similar top-line outcomes while differing in their underlying response patterns. It does not show that one reward is more motivating than the other, or that Need to Belong defines a user segment.</p></div>
+<h2 data-source-paragraph="62">Product Hypotheses to Validate</h2>
+<p data-source-paragraph="63">These are hypotheses drawn from a controlled lab study, not product prescriptions. Each is tied to a finding, and the confidence rating reflects how directly the study supports it.</p>
+<div class="hypothesis-list" aria-label="Product hypotheses and confidence">
+<div class="hypothesis-head"><span data-source-cell="64-0-0">Priority</span><span data-source-cell="64-0-1">Hypothesis</span><span data-source-cell="64-0-2">Basis</span><span data-source-cell="64-0-3">Confidence</span></div>
+<article class="hypothesis-item">
+        <div class="num" data-source-cell="64-1-0">1</div>
+        <div><div class="hypothesis-content" data-source-cell="64-1-1">Similar top-line results may not mean interchangeable incentives. When two incentives look alike on a top-line metric, check whether more granular patterns tell a different story. In a product, “granular” could mean retention curves, usage paths, or short follow-up interviews rather than brain data.</div>
+        <div class="confidence"><span data-source-cell="64-1-2">Findings 1–2</span> · <span data-source-cell="64-1-3">Medium. Supported by the contrast between aggregate and pattern-level results in this study, though pattern-level differences alone do not show different behavioral outcomes</span></div></div>
+    </article>
+<article class="hypothesis-item">
+        <div class="num" data-source-cell="64-2-0">2</div>
+        <div><div class="hypothesis-content" data-source-cell="64-2-1">Pairing behavioral metrics with a short motivation measure may reveal differences that clicks, speed, or conversion miss. Worth testing when evaluating social features.</div>
+        <div class="confidence"><span data-source-cell="64-2-2">Finding 3</span> · <span data-source-cell="64-2-3">Medium. Based on an individual-difference association in one study</span></div></div>
+    </article>
+<article class="hypothesis-item">
+        <div class="num" data-source-cell="64-3-0">3</div>
+        <div><div class="hypothesis-content" data-source-cell="64-3-1">Belonging may be a useful dimension to explore when examining how social incentives work for different users. Test whether effects differ across user groups before personalizing, and treat belonging as a hypothesis to examine, not a targeting rule.</div>
+        <div class="confidence"><span data-source-cell="64-3-2">Finding 3</span> · <span data-source-cell="64-3-3">Medium–low. Correlational finding that needs validation in product data</span></div></div>
+    </article>
+</div>
+<blockquote class="app-example"><p data-source-paragraph="65">For example (hypothetical): if a fitness app finds that friend kudos and reward points both increase weekly workouts by 8%, the next step is not to conclude that the choice of incentive does not matter. It is to ask whether the two incentives work differently underneath, or work better for different users.</p></blockquote>
+<p data-source-paragraph="66">Each hypothesis should be validated with real product data before it influences targeting or roadmap decisions.</p>
+    </section>
           <section id="impact" class="story-section" aria-labelledby="impact-title">
-            <div class="kicker">06 / Contribution & next questions</div>
-            <h2 id="impact-title">A publication, a research contribution, and questions to carry forward.</h2>
-            <div class="impact-line"><div class="symbol" aria-hidden="true">↗</div><div><strong>First-author publication · Journal of Cognitive Neuroscience (2026)</strong><span>Shared across research presentations and peer-reviewed publication; no shipped product feature is claimed.</span></div></div>
-            <p>For product research, the skills I would carry forward include controlled comparison, combining attitudinal and behavioral measures, protecting data quality, evaluating tradeoffs, and communicating uncertainty clearly.</p>
-            <h3>What I would study next</h3>
-            <ol class="next-actions">
-              <li>Run a real product experiment comparing social recognition and reward points, with an a priori behavioral outcome such as retention and a brief belonging measure.</li>
-              <li>Interview users to understand when recognition feels meaningful or authentic, and test more ecologically valid social rewards.</li>
-              <li>Measure perceived reward value and examine whether neural differences relate to everyday social behavior, with appropriate consent.</li>
-            </ol>
-            <details><summary>Limitations and boundaries of the evidence</summary>
-              <p><strong>Reward matching:</strong> Social and monetary incentives were not calibrated to equal subjective value, so the study cannot determine which is inherently more motivating.</p>
-              <p><strong>Segmentation:</strong> Need to Belong was a correlational finding from one study, not a validated targeting rule.</p>
-              <p><strong>Sample:</strong> Adults aged 30–45, 78.5% women; findings cannot be assumed to generalize to all populations.</p>
-              <p><strong>Ecological validity:</strong> A stranger's approval in a brief video is a simplified proxy for social recognition in actual products.</p>
-            </details>
-          </section>
+    <div class="kicker">06 / Impact &amp; next steps</div>
+    <h2 id="impact-title" data-source-paragraph="67">Impact</h2>
+    <p data-source-paragraph="68" class="section-intro">As academic research, the impact of this work is primarily on how social and monetary rewards are measured and interpreted, rather than on shipped product features.</p>
+<p data-source-paragraph="69" class="small-section-label">Contribution</p>
+<div class="contribution-list">
+<div class="contribution-item"><span class="contrib-icon">↗</span><p data-source-paragraph="70">Published as first author in the Journal of Cognitive Neuroscience (2026).</p></div>
+<div class="contribution-item"><span class="contrib-icon">↗</span><p data-source-paragraph="71">Provided evidence that similar average responses do not necessarily imply interchangeable rewards, showing that more fine-grained analyses can reveal differences hidden by aggregate measures.</p></div>
+<div class="contribution-item"><span class="contrib-icon">↗</span><p data-source-paragraph="72">Identified Need to Belong as a candidate individual-difference factor worth examining for who may respond more strongly to social rewards.</p></div>
+<div class="contribution-item"><span class="contrib-icon">↗</span><p data-source-paragraph="73">Communicated the findings across audiences through departmental talks, research showcases, and peer-reviewed publication.</p></div>
+</div>
+<p data-source-paragraph="74"><strong>What transfers to product research.</strong> Head-to-head experimental design, combining behavioral and attitudinal measures, careful data-quality decisions, calibrating confidence in conclusions, and translating findings for different audiences.</p>
+<details class="method-accordion"><summary>Limitations: what I could not conclude</summary>
+<h3 data-source-paragraph="75">Limitations: what I could not conclude</h3>
+<ul class="source-list"><li><div data-source-paragraph="76">Which reward is stronger. The social and monetary rewards were not calibrated onto a common subjective-value scale, so the study cannot determine which was inherently more motivating.</div></li><li><div data-source-paragraph="77">Correlation, not segmentation. The Need to Belong association was correlational and observed in a single study, so it is a hypothesis for future segmentation work rather than a validated segment or targeting rule.</div></li><li><div data-source-paragraph="78">Who it applies to. Healthy adults aged 30–45, 78.5% women, with sample size set by funding. The findings should not be assumed to generalize to clinical populations or substantially different age groups.</div></li><li><div data-source-paragraph="79">Ecological validity. A brief video of a stranger’s approval is a simplified proxy for social rewards from friends, colleagues, or communities in real products.</div></li></ul>
+</details>
+<h3 data-source-paragraph="80">What I’d do next</h3>
+<p data-source-paragraph="81">The next step is to move from controlled lab findings toward real product behavior.</p>
+<ol class="next-actions"><li><div data-source-paragraph="82">Test the belonging hypothesis in-product. Run a social-versus-points incentive experiment, pair it with a short Need to Belong measure, and test whether reward effects on retention differ across users.</div></li><li><div data-source-paragraph="83">Add qualitative research to understand why. Interview users with higher and lower Need to Belong scores about when recognition feels meaningful, when it does not, and what makes a social reward feel authentic.</div></li><li><div data-source-paragraph="84">Increase ecological validity. Test feedback from people participants actually know, and collect perceived-value ratings so social and monetary rewards can be compared on a more equivalent subjective-value scale.</div></li><li><div data-source-paragraph="85">Link neural sensitivity to real-world social behavior. Test whether neural responses to social versus monetary reward are associated with naturally occurring social behavior (for example, how people communicate in social settings), using data collected with appropriate consent. This would show whether the lab differences map onto how people actually behave in social environments.</div></li></ol>
+<div class="reflection"><p data-source-paragraph="86">What this taught me: the measure we choose shapes what we are able to see. “No difference detected” is not the same as “no difference exists”; sometimes the limitation is the metric, not the experience.</p></div>
+    </section>
           <div class="closing">
             <div class="kicker">What this taught me</div>
             <h2>The measure we choose shapes what we are able to see.</h2>
