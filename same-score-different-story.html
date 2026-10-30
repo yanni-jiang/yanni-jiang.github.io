@@ -4,155 +4,243 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111820">
-  <meta name="description" content="A research case study by Yanni Jiang: comparing how 107 adults anticipated social and monetary rewards using behavioral measures, fMRI, and a Need to Belong survey.">
+  <meta name="description" content="Same Score, Different Story — a quantitative research case study by Yanni Jiang comparing anticipation of social and monetary rewards.">
   <title>Same Score, Different Story | Yanni Jiang</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:#111820; --surface:#1D2833; --surface-soft:#17222D;
-      --text:#EFF3F6; --muted:#ADBBC9; --blue:#94C9E7;
-      --purple:#B7A8D9; --orange:#F8971F; --border:#30404D;
-      --content:1040px; --reading:760px;
+      --bg: #111820;
+      --surface: #1D2833;
+      --surface-soft: #18232D;
+      --text: #EFF3F6;
+      --muted: #B2C0CE;
+      --soft: #8397A7;
+      --blue: #94C9E7;
+      --purple: #B7A8D9;
+      --orange: #F8971F;
+      --border: #30404D;
+      --content-width: 1160px;
+      --reading-width: 760px;
     }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; background:var(--bg); color:var(--text); font-family:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
-    a { color:inherit; }
-    a:focus-visible,summary:focus-visible { outline:2px solid var(--blue); outline-offset:4px; }
-    ::selection { background:var(--purple); color:var(--bg); }
-    .container { width:min(var(--content),calc(100% - 64px)); margin:auto; }
-    .reading { max-width:var(--reading); margin-inline:auto; }
-    .site-header { border-bottom:1px solid var(--border); background:rgba(17,24,32,.96); }
-    .header-inner { min-height:82px; display:flex; justify-content:space-between; align-items:center; gap:24px; }
-    .logo { font:700 21px "Space Grotesk",sans-serif; letter-spacing:-.04em; text-decoration:none; white-space:nowrap; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: "DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+    ::selection { background: var(--purple); color: var(--bg); }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    .skip-link { position:fixed; z-index:1000; top:-80px; left:20px; padding:12px 17px; border-radius:8px; color:var(--bg); background:var(--blue); text-decoration:none; }
+    .skip-link:focus { top:16px; }
+    #reading-progress { position:fixed; z-index:110; top:0; left:0; right:0; height:4px; background:transparent; pointer-events:none; }
+    #reading-progress .fill { display:block; height:100%; width:100%; transform-origin:left center; transform:scaleX(0); background:linear-gradient(90deg,var(--blue) 0%,var(--purple) 83%,var(--orange) 100%); }
+    .container { width:min(var(--content-width), calc(100% - 64px)); margin-inline:auto; }
+    .site-header { position:sticky; z-index:90; top:0; border-bottom:1px solid var(--border); background:rgba(17,24,32,.96); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px); }
+    .header-inner { min-height:73px; display:flex; justify-content:space-between; align-items:center; gap:24px; }
+    .logo { font:700 21px/1 "Space Grotesk",sans-serif; letter-spacing:-.035em; text-decoration:none; white-space:nowrap; }
     .logo-dot { color:var(--orange); }
-    .site-nav { display:flex; flex-wrap:wrap; gap:clamp(16px,2.7vw,32px); align-items:center; }
-    .site-nav a { color:var(--muted); font-size:14px; font-weight:600; text-decoration:none; }
+    .site-nav { display:flex; gap:clamp(15px,2.3vw,30px); align-items:center; flex-wrap:wrap; }
+    .site-nav a { font-size:14px; color:var(--muted); font-weight:600; text-decoration:none; }
     .site-nav a:hover,.site-nav a[aria-current="page"] { color:var(--blue); }
-    h1,h2,h3,p { margin-top:0; }
-    h1,h2,h3 { font-family:"Space Grotesk",sans-serif; }
-    p,li { line-height:1.8; }
+    p,h1,h2,h3,blockquote { margin-top:0; }
+    p,li { line-height:1.75; }
     p { color:var(--muted); }
-    strong { color:var(--text); }
-    .back { display:inline-flex; text-decoration:none; color:var(--blue); margin:44px 0 0; font-size:13px; font-weight:700; }
-    .back:hover { text-decoration:underline; }
-    .hero { padding:70px 0 72px; }
-    .eyebrow { display:flex; align-items:center; gap:10px; color:var(--blue); font-weight:700; font-size:12px; letter-spacing:.13em; text-transform:uppercase; }
-    .eyebrow .dot { width:7px; height:7px; border-radius:50%; background:var(--orange); }
-    h1 { max-width:850px; font-size:clamp(46px,6.7vw,78px); letter-spacing:-.058em; line-height:1.08; margin:24px 0 18px; }
-    .subtitle { color:var(--purple); font:500 clamp(22px,2.6vw,31px)/1.35 "Space Grotesk",sans-serif; letter-spacing:-.025em; margin-bottom:25px; }
-    .lead { font-size:19px; line-height:1.85; max-width:780px; }
-    .meta-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:35px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-    .meta { padding:20px 20px 20px 0; }
-    .meta:not(:last-child) { border-right:1px solid var(--border); margin-right:20px; }
-    .meta-label { color:var(--purple); font-size:11px; letter-spacing:.09em; text-transform:uppercase; font-weight:700; margin-bottom:7px; }
-    .meta-value { font-size:14px; line-height:1.55; font-weight:600; }
-    .hero-visual { border:1px solid var(--border); background:linear-gradient(150deg,#1D2833,#151F2A); border-radius:22px; padding:26px 30px 16px; margin-top:36px; }
-    .visual-head { color:var(--muted); font-size:12px; display:flex; justify-content:space-between; gap:15px; }
-    .hero-visual svg { width:100%; height:auto; display:block; max-height:285px; }
-    .visual-foot { display:flex; justify-content:space-between; gap:20px; color:var(--muted); font-size:11px; line-height:1.5; }
-    .visual-foot strong { color:var(--text); }
-    .section { border-top:1px solid var(--border); padding:75px 0; }
-    .kicker { color:var(--purple); text-transform:uppercase; letter-spacing:.15em; font-size:11px; font-weight:700; margin-bottom:16px; }
-    h2 { font-size:clamp(29px,3vw,40px); line-height:1.18; letter-spacing:-.045em; margin-bottom:22px; }
-    h3 { font-size:20px; line-height:1.35; letter-spacing:-.025em; margin:0 0 11px; }
-    .reading p { font-size:16px; margin-bottom:18px; }
-    .overview { padding-top:0; border-top:0; }
-    .insight-strip { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
-    .insight { border:1px solid var(--border); background:var(--surface); border-radius:15px; padding:23px 22px; }
-    .insight .n { color:var(--blue); font-size:11px; font-weight:700; letter-spacing:.12em; margin-bottom:14px; }
-    .insight h3 { font-size:18px; }
-    .insight p { font-size:13px; line-height:1.7; margin:0; }
-    .callout { background:var(--surface-soft); border-left:3px solid var(--blue); border-radius:0 12px 12px 0; padding:20px 24px; margin:30px 0 0; }
-    .callout p { margin:0; color:var(--text); font-size:16px; }
-    .gap-list { display:grid; gap:16px; margin:20px 0; }
-    .gap-item { display:grid; grid-template-columns:34px 1fr; gap:14px; }
-    .gap-item .index { color:var(--purple); font-size:13px; font-weight:700; padding-top:2px; }
-    .gap-item strong { display:block; margin-bottom:4px; }
-    .gap-item p { margin:0; font-size:15px; }
-    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-    .info-card { border:1px solid var(--border); border-radius:16px; background:var(--surface); padding:24px; }
-    .info-card h3 { color:var(--blue); font-size:18px; }
-    .info-card p { margin:0 0 14px; font-size:14px; }
-    .info-card p:last-child { margin-bottom:0; }
-    .question-list { display:grid; gap:14px; margin:30px 0 0; }
-    .question { display:flex; gap:18px; padding:17px 0; border-bottom:1px solid var(--border); }
-    .question .qnum { color:var(--purple); font:700 14px "Space Grotesk",sans-serif; width:24px; flex:none; }
-    .question p { margin:0; font-size:16px; color:var(--text); }
-    .condition-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:25px 0 0; }
-    .condition { padding:20px; border:1px solid var(--border); border-radius:14px; background:var(--surface); }
-    .condition .condition-label { color:var(--purple); font-size:11px; text-transform:uppercase; letter-spacing:.09em; font-weight:700; margin-bottom:12px; }
-    .condition p { font-size:14px; margin:0 0 13px; }
-    .condition p:last-child { margin:0; }
-    .measure-table { width:100%; border-collapse:collapse; margin:28px 0; }
-    .measure-table th,.measure-table td { padding:17px 14px; border-bottom:1px solid var(--border); text-align:left; vertical-align:top; font-size:14px; line-height:1.65; }
-    .measure-table th { color:var(--purple); font-size:11px; text-transform:uppercase; letter-spacing:.1em; }
-    .measure-table td { color:var(--muted); }
-    .measure-table td:first-child { font-weight:700; color:var(--text); }
-    .finding { padding:30px 0 35px; border-top:1px solid var(--border); }
-    .finding:first-of-type { border-top:0; }
-    .finding-number { display:inline-block; color:var(--blue); font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; margin-bottom:11px; }
-    .finding h3 { font-size:clamp(23px,2.4vw,30px); }
+    h1,h2,h3 { font-family:"Space Grotesk",sans-serif; }
+    h2 { font-size:clamp(27px,3.1vw,42px); line-height:1.15; letter-spacing:-.045em; }
+    h3 { font-size:clamp(19px,2vw,25px); line-height:1.28; letter-spacing:-.03em; }
+    strong { color:var(--text); font-weight:700; }
+    .eyebrow,.kicker { font-weight:700; text-transform:uppercase; letter-spacing:.14em; font-size:11px; color:var(--purple); }
+    .eyebrow { display:flex; align-items:center; gap:10px; color:var(--blue); }
+    .little-dot { flex:none; width:6px; height:6px; background:var(--orange); border-radius:50%; }
+    .back-link { display:inline-flex; margin:30px 0 16px; font-size:13px; font-weight:700; color:var(--blue); text-decoration:none; }
+    .back-link:hover { text-decoration:underline; }
+    .hero { position:relative; padding:47px 0 45px; overflow:hidden; }
+    .hero::before { content:""; position:absolute; pointer-events:none; width:510px; height:510px; top:-180px; right:-230px; border-radius:50%; background:radial-gradient(circle, rgba(148,201,231,.095), transparent 65%); }
+    .hero-layout { position:relative; display:grid; grid-template-columns:minmax(0,1fr) 350px; gap:45px; align-items:center; }
+    .hero h1 { max-width:720px; font-size:clamp(44px,5.5vw,72px); line-height:1.06; letter-spacing:-.06em; margin:20px 0 15px; }
+    .hero-subtitle { color:var(--purple); font:500 clamp(19px,2.2vw,26px)/1.35 "Space Grotesk",sans-serif; margin-bottom:20px; }
+    .hero-lead { max-width:660px; font-size:16px; line-height:1.8; margin:0; }
+    .hero-figure { position:relative; margin:0; min-width:0; padding:18px; }
+    .hero-figure svg { display:block; width:100%; height:auto; }
+    .hero-figure figcaption { text-align:center; color:var(--soft); font-size:11px; line-height:1.5; }
+    .hero-facts { border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:18px 0; margin-top:41px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+    .fact-label { font-size:10px; text-transform:uppercase; letter-spacing:.11em; color:var(--purple); font-weight:700; margin-bottom:6px; }
+    .fact-value { color:var(--text); font-size:13px; line-height:1.55; font-weight:600; }
+    .quick-take { background:linear-gradient(125deg,#1D2833,#18232E); border:1px solid var(--border); border-radius:18px; padding:25px 30px; display:grid; grid-template-columns:1.05fr 2fr; gap:26px; align-items:start; margin:22px 0 72px; }
+    .quick-take .kicker { color:var(--blue); margin-bottom:10px; }
+    .quick-take h2 { font-size:clamp(22px,2.35vw,29px); margin:0; }
+    .take-list { display:grid; gap:11px; }
+    .take-line { display:grid; grid-template-columns:25px 1fr; gap:10px; align-items:start; }
+    .take-line b { font-family:"Space Grotesk",sans-serif; color:var(--purple); font-size:12px; padding-top:3px; }
+    .take-line span { font-size:14px; line-height:1.6; color:var(--muted); }
+    .case-layout { display:grid; grid-template-columns:205px minmax(0,1fr); gap:clamp(36px,6vw,84px); align-items:start; }
+    .toc { position:sticky; top:110px; align-self:start; padding:8px 0 20px; }
+    .toc-heading { color:var(--soft); font-size:10px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; margin-bottom:13px; }
+    .toc a { display:flex; gap:10px; align-items:center; border-left:2px solid var(--border); padding:10px 4px 10px 15px; text-decoration:none; color:var(--soft); font-size:12px; line-height:1.5; transition:color .15s, border-color .15s; }
+    .toc a span { min-width:20px; font-size:11px; color:inherit; }
+    .toc a:hover,.toc a.active { color:var(--blue); border-color:var(--blue); }
+    .toc-foot { border-top:1px solid var(--border); margin-top:16px; padding-top:13px; color:var(--soft); font-size:11px; line-height:1.5; }
+    .mobile-toc { display:none; }
+    .story-content { min-width:0; }
+    .story-section { padding:0 0 72px; margin-bottom:65px; border-bottom:1px solid var(--border); scroll-margin-top:95px; }
+    .story-section:last-child { border-bottom:0; margin-bottom:0; }
+    .story-section .kicker { margin-bottom:18px; }
+    .story-section h2 { margin-bottom:20px; }
+    .story-section p { font-size:15.5px; margin-bottom:17px; }
+    .section-intro { font-size:17px !important; color:var(--text); line-height:1.7; }
+    .three-gaps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:30px; }
+    .gap-item { padding-top:13px; border-top:2px solid var(--border); }
+    .gap-item .num { color:var(--purple); font:700 12px "Space Grotesk",sans-serif; margin-bottom:11px; }
+    .gap-item h3 { font-size:16px; margin-bottom:8px; }
+    .gap-item p { font-size:13px; line-height:1.65; margin:0; }
+    .ownership { display:grid; grid-template-columns:1.25fr .75fr; gap:27px; margin-top:29px; }
+    .ownership-main { padding:24px 28px; border-radius:14px; background:var(--surface); border:1px solid var(--border); }
+    .ownership h3 { font-size:19px; margin:0 0 14px; color:var(--blue); }
+    .ownership p { font-size:14px; line-height:1.7; margin:0; }
+    .ownership-side { padding:24px 0; border-top:1px solid var(--border); }
+    details { margin-top:19px; padding:16px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+    details + details { border-top:0; margin-top:0; }
+    details summary { display:flex; align-items:center; justify-content:space-between; gap:12px; cursor:pointer; color:var(--blue); font-weight:700; font-size:13px; list-style:none; }
+    details summary::-webkit-details-marker { display:none; }
+    details summary::after { content:"+"; font:500 23px/1 "Space Grotesk",sans-serif; color:var(--purple); }
+    details[open] summary::after { content:"−"; }
+    details p,details li { font-size:14px !important; margin:14px 0 0; }
+    .process { margin:31px 0 24px; display:grid; grid-template-columns:1fr 22px 1fr 22px 1fr; gap:12px; align-items:stretch; }
+    .process-node { border:1px solid var(--border); background:var(--surface); border-radius:13px; padding:20px; }
+    .process-node .step { font:700 12px "Space Grotesk",sans-serif; color:var(--blue); margin-bottom:11px; }
+    .process-node strong { display:block; font-size:16px; margin-bottom:7px; }
+    .process-node p { font-size:13px; line-height:1.55; margin:0; }
+    .process-arrow { display:grid; place-items:center; color:var(--purple); font-size:23px; }
+    .method-bottom { display:flex; flex-wrap:wrap; gap:9px; margin:22px 0; }
+    .method-pill { background:#243441; border:1px solid #385069; padding:8px 11px; border-radius:8px; font-size:12px; color:var(--text); }
+    .method-note { color:var(--soft); font-size:13px !important; margin-top:8px; }
+    .finding { margin:31px 0 68px; }
+    .finding:last-of-type { margin-bottom:16px; }
+    .finding-label { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--purple); display:block; margin-bottom:10px; }
+    .finding h3 { font-size:clamp(23px,2.6vw,31px); margin:0 0 15px; }
     .finding p { font-size:15px; }
-    .stats { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:22px 0; }
-    .stat { border:1px solid var(--border); background:var(--surface); border-radius:13px; padding:18px; }
-    .stat .value { font:600 clamp(22px,3vw,30px) "Space Grotesk",sans-serif; color:var(--blue); letter-spacing:-.03em; }
-    .stat .explain { font-size:12px; color:var(--muted); line-height:1.7; margin-top:8px; }
-    .interpret { border-left:2px solid var(--purple); padding-left:18px; margin:20px 0 0; color:var(--text); }
-    .interpret p { color:var(--text); font-size:15px; margin:0; }
-    details { border:1px solid var(--border); background:var(--surface-soft); border-radius:14px; padding:19px 22px; margin-top:20px; }
-    details summary { color:var(--blue); cursor:pointer; font-weight:700; font-size:14px; }
-    details p, details li { color:var(--muted); font-size:14px; }
-    details p { margin:14px 0 0; }
-    .hypotheses { display:grid; gap:15px; }
-    .hypothesis { border:1px solid var(--border); background:var(--surface); border-radius:16px; padding:23px; display:grid; grid-template-columns:54px 1fr; gap:14px; }
-    .hypothesis .priority { color:var(--purple); font-weight:700; font-size:12px; letter-spacing:.05em; }
-    .hypothesis h3 { font-size:18px; }
-    .hypothesis p { font-size:14px; margin:0 0 10px; }
-    .hypothesis .confidence { font-size:12px; color:var(--muted); margin:0; }
-    .clean-list { padding-left:23px; color:var(--muted); }
-    .clean-list li { margin-bottom:12px; font-size:15px; }
-    .ending { text-align:center; padding:80px 0 100px; }
-    .ending h2 { max-width:750px; margin:0 auto 20px; }
-    .ending p { max-width:720px; margin:0 auto 25px; }
-    .button { display:inline-flex; align-items:center; gap:10px; padding:13px 20px; background:var(--blue); color:var(--bg); font-size:14px; font-weight:700; border-radius:10px; text-decoration:none; }
-    .button:hover { background:#B3DDF3; }
+    .finding-visual { margin:25px 0 20px; padding:25px; background:var(--surface); border:1px solid var(--border); border-radius:15px; }
+    .visual-label { color:var(--soft); text-transform:uppercase; letter-spacing:.12em; font-weight:700; font-size:10px; margin-bottom:20px; }
+    .stat-rows { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:26px; }
+    .stat-col .stat-heading { font-weight:700; font-size:13px; color:var(--text); margin-bottom:5px; }
+    .stat-col .stat-sub { font-size:11px; line-height:1.5; color:var(--soft); margin-bottom:18px; }
+    .bar-row { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+    .bar-label { width:69px; flex:none; font-size:11px; color:var(--muted); }
+    .bar-track { flex:1; background:#31404D; height:12px; border-radius:3px; overflow:hidden; }
+    .bar-fill { height:100%; border-radius:3px; background:var(--blue); }
+    .bar-fill.purple { background:var(--purple); }
+    .bar-value { width:33px; flex:none; text-align:right; font-weight:700; font-size:12px; }
+    .rt-pair { display:flex; flex-wrap:wrap; align-items:baseline; gap:9px; margin-top:10px; }
+    .rt-pair strong { font:600 32px "Space Grotesk",sans-serif; }
+    .rt-pair .purple { color:var(--purple); }
+    .rt-pair .blue { color:var(--blue); }
+    .rt-pair .versus { color:var(--soft); font-size:12px; }
+    .rt-note { font-size:12px; color:var(--muted); line-height:1.65; margin-top:10px; }
+    .visual-disclaimer { font-size:11px; color:var(--soft); line-height:1.6; border-top:1px solid var(--border); padding-top:13px; margin-top:12px; }
+    .matrix-compare { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:25px; }
+    .matrix-item { text-align:center; }
+    .matrix-title { font-size:13px; font-weight:700; margin-bottom:14px; }
+    .matrix { display:grid; grid-template-columns:repeat(5, 1fr); gap:6px; width:min(100%,180px); margin:0 auto 14px; }
+    .matrix span { display:block; aspect-ratio:1; border-radius:4px; background:#344555; }
+    .matrix span.hot { background:var(--blue); opacity:.88; }
+    .matrix.two span.hot { background:var(--purple); }
+    .matrix-sub { font-size:12px; color:var(--muted); line-height:1.55; }
+    .compare-mark { color:var(--orange); font-family:"Space Grotesk",sans-serif; font-size:22px; }
+    .evidence-compare { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:25px 0; }
+    .evidence { padding:23px; border-radius:13px; background:var(--surface); border:1px solid var(--border); }
+    .evidence .mini-label { display:block; font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; margin-bottom:15px; color:var(--soft); }
+    .evidence h4 { font:600 19px/1.3 "Space Grotesk",sans-serif; margin:0 0 9px; }
+    .evidence.positive { border-top:3px solid var(--purple); }
+    .evidence.positive h4 { color:var(--purple); }
+    .evidence.neutral { border-top:3px solid var(--soft); }
+    .evidence p { font-size:13px; margin:0; }
+    .interpretation { padding:0 0 0 18px; border-left:3px solid var(--purple); font-size:14px; line-height:1.7; color:var(--text); }
+    .interpretation strong { color:var(--blue); }
+    .synthesis { font:500 clamp(24px,3.2vw,39px)/1.3 "Space Grotesk",sans-serif; letter-spacing:-.035em; color:var(--text); margin:24px 0; }
+    .synthesis em { color:var(--blue); font-style:normal; }
+    .small-caveat { font-size:13px !important; color:var(--muted); border-left:2px solid var(--orange); padding-left:16px; margin-top:23px; }
+    .hypothesis-list { margin-top:27px; border-top:1px solid var(--border); }
+    .hypothesis-item { display:grid; grid-template-columns:40px 1fr; gap:15px; padding:22px 0; border-bottom:1px solid var(--border); }
+    .hypothesis-item .num { color:var(--blue); font:600 15px "Space Grotesk",sans-serif; }
+    .hypothesis-item h3 { margin:0 0 9px; font-size:20px; }
+    .hypothesis-item p { font-size:14px; margin-bottom:8px; }
+    .confidence { color:var(--soft); font-size:12px; }
+    .impact-line { border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:22px 0; margin:25px 0; display:flex; align-items:center; gap:18px; }
+    .impact-line .symbol { flex:none; display:grid; place-items:center; width:50px; height:50px; border-radius:12px; background:#29394A; color:var(--blue); font:700 22px "Space Grotesk",sans-serif; }
+    .impact-line strong { display:block; font-size:15px; }
+    .impact-line span { display:block; color:var(--muted); font-size:13px; line-height:1.65; margin-top:4px; }
+    .next-actions { padding-left:22px; }
+    .next-actions li { padding-left:5px; color:var(--muted); font-size:14px; margin-bottom:10px; }
+    .closing { padding:18px 0 86px; }
+    .closing h2 { max-width:740px; font-size:clamp(30px,4vw,49px); }
+    .closing p { max-width:640px; font-size:16px; }
+    .button { display:inline-flex; text-decoration:none; background:var(--blue); color:var(--bg); border-radius:9px; padding:13px 18px; font-size:13px; font-weight:700; }
+    .button:hover { background:#B4DFF6; }
+    .back-top { position:fixed; right:23px; bottom:21px; z-index:50; width:40px; height:40px; background:var(--surface); color:var(--blue); border:1px solid var(--border); border-radius:50%; cursor:pointer; opacity:0; visibility:hidden; transition:opacity .2s,visibility .2s; font-size:20px; }
+    .back-top.visible { opacity:1; visibility:visible; }
     footer { border-top:1px solid var(--border); }
-    .footer-inner { display:flex; justify-content:space-between; align-items:center; gap:15px; padding:28px 0 38px; }
-    .footer-inner span { color:var(--muted); font-size:12px; }
-    .footer-inner a { color:var(--blue); text-decoration:none; font-size:13px; font-weight:700; }
-    @media(max-width:850px) {
-      .meta-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-      .meta:nth-child(2) { border-right:0; }
-      .meta:nth-child(-n+2) { border-bottom:1px solid var(--border); }
-      .insight-strip,.condition-grid { grid-template-columns:1fr; }
+    .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:24px 0 32px; }
+    .footer-inner span { font-size:12px; color:var(--soft); }
+    .footer-inner a { font-size:13px; font-weight:700; color:var(--blue); text-decoration:none; }
+    @media(max-width:1000px) {
+      .hero-layout { grid-template-columns:minmax(0,1fr) 270px; gap:22px; }
+      .case-layout { grid-template-columns:165px minmax(0,1fr); gap:33px; }
+      .three-gaps { gap:12px; }
     }
-    @media(max-width:650px) {
+    @media(max-width:790px) {
+      .hero-layout { grid-template-columns:1fr; }
+      .hero-figure { max-width:400px; width:100%; justify-self:center; padding:0; }
+      .hero-figure svg { max-height:200px; }
+      .hero-facts { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .quick-take { grid-template-columns:1fr; gap:18px; }
+      .case-layout { grid-template-columns:1fr; }
+      .toc { display:none; }
+      .mobile-toc { display:block; margin-bottom:38px; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 17px; }
+      .mobile-toc summary { color:var(--blue); font-size:13px; font-weight:700; cursor:pointer; }
+      .mobile-toc .mobile-links { display:grid; grid-template-columns:repeat(2,1fr); gap:9px; padding:16px 0 2px; }
+      .mobile-toc a { color:var(--muted); font-size:13px; text-decoration:none; }
+      .mobile-toc a:hover { color:var(--blue); }
+    }
+    @media(max-width:620px) {
       .container { width:calc(100% - 36px); }
-      .header-inner { flex-direction:column; align-items:flex-start; padding:18px 0; gap:13px; }
+      .header-inner { min-height:0; padding:19px 0; flex-wrap:wrap; gap:15px; }
       .site-nav { gap:17px; }
-      .hero { padding:55px 0; }
-      .lead { font-size:17px; }
-      .section { padding:58px 0; }
-      .two-col { grid-template-columns:1fr; }
-      .meta:not(:last-child) { margin-right:13px; }
-      .meta { padding:16px 0; }
-      .meta-value { font-size:13px; }
-      .hero-visual { padding:16px 13px; }
-      .hypothesis { grid-template-columns:1fr; gap:4px; }
-      .stats { grid-template-columns:1fr; }
-      .measure-table th,.measure-table td { padding:12px 8px; font-size:12px; }
+      .site-nav a { font-size:12px; }
+      .hero { padding-top:26px; }
+      .hero h1 { font-size:clamp(42px,10.5vw,58px); }
+      .hero-figure { max-width:330px; }
+      .quick-take { padding:22px; margin-bottom:50px; }
+      .story-section { padding-bottom:49px; margin-bottom:50px; }
+      .three-gaps,.ownership,.stat-rows,.evidence-compare { grid-template-columns:1fr; }
+      .gap-item { padding-top:11px; }
+      .ownership { gap:5px; }
+      .ownership-main { padding:21px; }
+      .ownership-side { padding:21px 0; }
+      .process { grid-template-columns:1fr; gap:8px; }
+      .process-arrow { transform:rotate(90deg); height:20px; }
+      .finding { margin-bottom:52px; }
+      .finding-visual { padding:18px; }
+      .matrix-compare { gap:8px; }
+      .matrix { gap:4px; }
+      .matrix-title { font-size:11px; }
+      .matrix-sub { font-size:11px; }
+      .compare-mark { font-size:18px; }
       .footer-inner { flex-direction:column; align-items:flex-start; }
+      .back-top { bottom:16px; right:13px; }
     }
-    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+    @media(prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      *, *::before, *::after { transition-duration:0.01ms !important; animation-duration:0.01ms !important; }
+    }
   </style>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div id="reading-progress" role="progressbar" aria-label="Page reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="fill"></span></div>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="index.html#home" aria-label="Yanni Jiang, home">Yanni Jiang<span class="logo-dot">.</span></a>
+      <a class="logo" href="index.html#home" aria-label="Yanni Jiang — home">Yanni Jiang<span class="logo-dot">.</span></a>
       <nav class="site-nav" aria-label="Main navigation">
         <a href="index.html#home">Home</a>
         <a href="index.html#projects" aria-current="page">Projects</a>
@@ -161,201 +249,261 @@
       </nav>
     </div>
   </header>
-  <main>
-    <div class="container"><a class="back" href="index.html#projects">← Back to projects</a></div>
-    <section class="hero container">
-      <div class="eyebrow"><span class="dot" aria-hidden="true"></span> Experimental research · Quantitative research</div>
-      <h1>Same Score, Different Story</h1>
-      <p class="subtitle">Is a “Like” the Same Lever as Money?</p>
-      <p class="lead">If social recognition and monetary incentives produce similar behavioral outcomes, should we treat them as interchangeable? I investigated this question through a controlled laboratory comparison of how adults anticipate social and monetary rewards.</p>
-      <div class="meta-grid" aria-label="Project overview">
-        <div class="meta"><div class="meta-label">My role</div><div class="meta-value">Lead analyst · First author</div></div>
-        <div class="meta"><div class="meta-label">Participants</div><div class="meta-value">107 adults, ages 30–45</div></div>
-        <div class="meta"><div class="meta-label">Methods</div><div class="meta-value">Behavior · Survey · fMRI</div></div>
-        <div class="meta"><div class="meta-label">Context</div><div class="meta-value">NSF-funded · UT Austin · 2023–2026</div></div>
-      </div>
-      <div class="hero-visual">
-        <div class="visual-head"><span>Conceptual illustration</span><span>Similar averages ≠ identical patterns</span></div>
-        <svg viewBox="0 0 920 250" role="img" aria-label="Conceptual illustration of two different patterns producing similar overall levels; not experimental data">
-          <g fill="none" stroke="#405362" stroke-width="1">
-            <path d="M35 40 H885 M35 125 H885 M35 210 H885" stroke-dasharray="3 9" opacity=".35"/>
-          </g>
-          <g stroke-width="3" stroke-linecap="round" fill="none">
-            <path d="M35 147 C80 93 126 95 173 145 S271 196 316 143 S414 90 460 145 S555 201 602 144 S696 96 744 145 S841 196 885 143" stroke="#94C9E7"/>
-            <path d="M35 145 C80 195 126 195 173 145 S270 95 316 145 S412 192 460 144 S556 94 602 144 S698 195 744 145 S839 94 885 146" stroke="#B7A8D9"/>
-          </g>
-          <path d="M35 145 H885" stroke="#F8971F" stroke-width="1.5" stroke-dasharray="6 10" opacity=".75"/>
-          <g fill="#ADBBC9" font-family="DM Sans,sans-serif" font-size="13">
-            <text x="35" y="27">Two distinct patterns</text><text x="885" y="237" text-anchor="end">Shared overall level</text>
-          </g>
-        </svg>
-        <div class="visual-foot"><span><strong>Blue / Lavender:</strong> illustrative response patterns</span><span>Not actual study data</span></div>
-      </div>
-    </section>
-
-    <section class="section overview container" aria-labelledby="short-title">
-      <div class="kicker">The short version</div>
-      <h2 id="short-title">The averages matched. The story didn't end there.</h2>
-      <div class="insight-strip">
-        <article class="insight"><div class="n">01 / SURFACE</div><h3>Similar overall outcomes</h3><p>Social and monetary reward anticipation produced comparable behavioral benefits and largely overlapping average neural responses.</p></article>
-        <article class="insight"><div class="n">02 / UNDERNEATH</div><h3>Distinguishable neural patterns</h3><p>Multivariate analysis revealed reward-related pattern differences that average activation measures did not capture.</p></article>
-        <article class="insight"><div class="n">03 / PEOPLE</div><h3>Individual variation</h3><p>Need to Belong was associated with relative neural response to social reward, although the association did not appear in measured behavior.</p></article>
-      </div>
-      <div class="callout"><p><strong>Important distinction:</strong> This was a controlled academic study, not an A/B test in a live product. Product implications below are hypotheses to validate, not established product outcomes.</p></div>
-    </section>
-
-    <section class="section container" aria-labelledby="context-title">
-      <div class="reading">
-        <div class="kicker">01 / The problem</div>
-        <h2 id="context-title">Why question a “common currency”?</h2>
-        <p>A prevailing view in cognitive neuroscience proposes that social approval and non-social rewards such as money rely on a largely shared neural reward system. Much of the supporting evidence comes from similar average activation in the same regions.</p>
-        <p>There is a parallel temptation in product research: if different incentives lift a top-line metric by a similar amount, it can seem reasonable to treat them as interchangeable. But matching averages alone cannot establish an identical underlying response.</p>
-        <div class="gap-list">
-          <div class="gap-item"><span class="index">01</span><div><strong>Indirect comparisons</strong><p>Past findings often compared separate participant samples, tasks, or reward formats rather than both incentives within the same individuals.</p></div></div>
-          <div class="gap-item"><span class="index">02</span><div><strong>One aggregate measure</strong><p>Average activation can obscure differences in the distribution or pattern of underlying responses.</p></div></div>
-          <div class="gap-item"><span class="index">03</span><div><strong>Differences between people</strong><p>People do not value social recognition in the same way; measuring individual motivations may reveal associations missed by group averages.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section container" aria-labelledby="role-title">
-      <div class="reading">
-        <div class="kicker">02 / Ownership</div>
-        <h2 id="role-title">My role and collaboration</h2>
-        <p>I was the lead analyst and first author on a six-person team. The principal investigator established the broader research framework and core experiment; I focused on execution, analytical decisions, synthesis, and communication.</p>
-      </div>
-      <div class="two-col">
-        <div class="info-card"><h3>What I owned</h3><p>Participant recruitment and study execution (500+ hours); quality-control and exclusion decisions; end-to-end analysis; integrating findings across methods; visualization; journal writing and research presentations.</p></div>
-        <div class="info-card"><h3>What was already defined</h3><p>Initial research concept, core experimental design, funding, and target sample size were established within the larger NSF-funded project.</p></div>
-      </div>
-      <div class="reading">
-        <details><summary>How I addressed an analysis capability gap</summary><p>When an interaction required an analysis method our lab had not used, I initiated collaboration with a lab experienced in multivariate classification. Their team suggested a four-way approach instead of indirectly contrasting two separate two-way classifications. I implemented the method, piloted validation choices, and used structured check-ins to align three senior researchers on recommendations and tradeoffs.</p></details>
-      </div>
-    </section>
-
-    <section class="section container" aria-labelledby="approach-title">
-      <div class="reading">
-        <div class="kicker">03 / Research approach</div>
-        <h2 id="approach-title">A controlled, head-to-head comparison</h2>
-        <p>I organized the analysis around three research questions, from surface-level results to individual differences:</p>
-        <div class="question-list">
-          <div class="question"><span class="qnum">01</span><p><strong>Surface.</strong> Do social and monetary rewards produce similar observable behavior and average neural responses?</p></div>
-          <div class="question"><span class="qnum">02</span><p><strong>Underneath.</strong> Can more fine-grained neural patterns reveal reward-related differences that summary measures miss?</p></div>
-          <div class="question"><span class="qnum">03</span><p><strong>People.</strong> Does Need to Belong relate to an individual's relative response to social versus monetary reward?</p></div>
-        </div>
-        <p style="margin-top:30px">The same 107 adults aged 30–45 experienced both reward types. On each trial, a cue indicated the available reward, and participants responded quickly to a visual target. Matched cues, separate no-reward baselines, and adaptive difficulty helped constrain alternative explanations.</p>
-      </div>
-      <div class="condition-grid" aria-label="Experimental feedback conditions">
-        <div class="condition"><div class="condition-label">Social feedback</div><p><strong>Reward received:</strong> smiling face and thumbs-up</p><p><strong>Reward missed:</strong> neutral face</p></div>
-        <div class="condition"><div class="condition-label">Monetary feedback</div><p><strong>Reward received:</strong> coins dropping into a wallet</p><p><strong>Reward missed:</strong> wallet closing without coins</p></div>
-        <div class="condition"><div class="condition-label">Baseline conditions</div><p>Distinct neutral videos for each feedback type, used to separate reward anticipation from no-reward anticipation.</p></div>
-      </div>
-      <div class="reading">
-        <table class="measure-table">
-          <thead><tr><th scope="col">Question</th><th scope="col">Measure</th></tr></thead>
-          <tbody>
-            <tr><td>Surface</td><td>Reaction time and hit rate; average neural activation and functional connectivity</td></tr>
-            <tr><td>Underneath</td><td>Multivariate classification of activity patterns across four experimental conditions</td></tr>
-            <tr><td>People</td><td>Need to Belong Scale and correlations with reward-related responses</td></tr>
-          </tbody>
-        </table>
-        <p><strong>Why not rely on interviews alone?</strong> Reward anticipation occurred within roughly 2.5 seconds. Behavioral and neural measures captured momentary responses, while a validated survey measured a relevant motivational trait.</p>
-        <p><strong>Data quality:</strong> 120 participants were recruited; 13 were excluded according to predefined criteria for excessive motion, technical issues, or completing less than 75% of the task. Final analytic sample: 107.</p>
-      </div>
-    </section>
-
-    <section class="section container" aria-labelledby="findings-title">
-      <div class="reading">
-        <div class="kicker">04 / Findings</div>
-        <h2 id="findings-title">Three findings, three levels of resolution</h2>
-        <article class="finding">
-          <div class="finding-number">Finding 01 / Surface</div>
-          <h3>Behavioral benefits looked similar for social and monetary rewards.</h3>
-          <p>Across reward types, anticipating reward improved performance: participants hit the target on approximately <strong>50% vs. 45%</strong> of trials and responded in approximately <strong>422 vs. 432 ms</strong> (reward vs. no-reward anticipation; both p &lt; .001). The reward-related boost did not differ significantly by reward type.</p>
-          <div class="stats">
-            <div class="stat"><div class="value">50% vs. 45%</div><div class="explain">Hit rate, reward at stake vs. no reward — pooled across social and monetary types</div></div>
-            <div class="stat"><div class="value">422 vs. 432 ms</div><div class="explain">Reaction time, reward at stake vs. no reward — pooled across reward types</div></div>
+  <main id="main">
+    <div class="container"><a class="back-link" href="index.html#projects">← All projects</a></div>
+    <section class="hero" aria-labelledby="case-title">
+      <div class="container">
+        <div class="hero-layout">
+          <div>
+            <div class="eyebrow"><span class="little-dot" aria-hidden="true"></span> Experimental research · Quantitative UX skills</div>
+            <h1 id="case-title">Same Score,<br>Different Story.</h1>
+            <p class="hero-subtitle">Is a “Like” the Same Lever as Money?</p>
+            <p class="hero-lead">When two incentives produce similar results, does that mean they work the same way? I tested this question in a controlled lab study of social and monetary reward anticipation.</p>
           </div>
-          <p>Average activation engaged substantially overlapping reward-related regions; no significant social-specific reward effect emerged at the average-activation level, and measured connectivity did not significantly differ.</p>
-          <div class="interpret"><p><strong>Interpretation:</strong> With only top-line results, the incentives looked largely alike. This is not proof that they are equivalent.</p></div>
+          <figure class="hero-figure">
+            <svg viewBox="0 0 350 315" role="img" aria-label="Conceptual illustration: overlapping overall levels, different response patterns; not actual brain data">
+              <defs><linearGradient id="circleFill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#273845"/><stop offset="1" stop-color="#141D26"/></linearGradient></defs>
+              <circle cx="174" cy="145" r="133" fill="url(#circleFill)" stroke="#344B5F" stroke-width="1"/>
+              <circle cx="174" cy="145" r="104" fill="none" stroke="#3F556A" stroke-width="1" stroke-dasharray="4 8"/>
+              <circle cx="174" cy="145" r="70" fill="none" stroke="#3F556A" stroke-width="1" stroke-dasharray="4 8"/>
+              <path d="M48 152 C77 85 104 214 133 149 S190 84 219 148 S277 212 303 149" stroke="#94C9E7" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              <path d="M48 146 C77 214 105 85 133 148 S191 214 219 147 S276 84 303 150" stroke="#B7A8D9" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              <line x1="42" y1="149" x2="307" y2="149" stroke="#F8971F" stroke-width="1.5" stroke-dasharray="4 7" opacity=".75"/>
+              <g font-family="DM Sans,sans-serif" font-size="11" fill="#B2C0CE" text-anchor="middle">
+                <text x="174" y="298">Similar overall level · Different patterns</text>
+              </g>
+            </svg>
+            <figcaption>Conceptual graphic · not experimental data</figcaption>
+          </figure>
+        </div>
+        <div class="hero-facts" aria-label="Case study details">
+          <div><div class="fact-label">Role</div><div class="fact-value">Lead analyst · First author</div></div>
+          <div><div class="fact-label">Sample</div><div class="fact-value">107 adults, 30–45</div></div>
+          <div><div class="fact-label">Methods</div><div class="fact-value">Experiment · Survey · fMRI</div></div>
+          <div><div class="fact-label">Context</div><div class="fact-value">UT Austin · NSF-funded · 2023–26</div></div>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <aside class="quick-take" aria-label="Executive summary">
+        <div><div class="kicker">The short version</div><h2>Same on the surface.<br>Different underneath.</h2></div>
+        <div class="take-list">
+          <div class="take-line"><b>01</b><span><strong>Surface:</strong> Rewards showed comparable behavioral benefits and substantially overlapping average neural responses.</span></div>
+          <div class="take-line"><b>02</b><span><strong>Patterns:</strong> More fine-grained analysis identified reward-related neural differences.</span></div>
+          <div class="take-line"><b>03</b><span><strong>People:</strong> Need to Belong related to relative neural responses, but not to measured behavior.</span></div>
+        </div>
+      </aside>
+      <div class="case-layout">
+        <aside class="toc" aria-label="On this page">
+          <div class="toc-heading">In this case study</div>
+          <nav id="desktop-toc">
+            <a href="#challenge"><span>01</span> The challenge</a>
+            <a href="#role"><span>02</span> My role</a>
+            <a href="#approach"><span>03</span> The approach</a>
+            <a href="#findings"><span>04</span> Findings</a>
+            <a href="#implications"><span>05</span> Product thinking</a>
+            <a href="#impact"><span>06</span> Impact & next steps</a>
+          </nav>
+          <div class="toc-foot">A controlled academic study.<br>Product implications are hypotheses, not validated outcomes.</div>
+        </aside>
+        <article class="story-content">
+          <details class="mobile-toc"><summary>Jump to a section</summary><nav class="mobile-links" aria-label="Mobile section navigation"><a href="#challenge">01 · The challenge</a><a href="#role">02 · My role</a><a href="#approach">03 · Approach</a><a href="#findings">04 · Findings</a><a href="#implications">05 · Product thinking</a><a href="#impact">06 · Impact</a></nav></details>
+          <section id="challenge" class="story-section" aria-labelledby="challenge-title">
+            <div class="kicker">01 / The challenge</div>
+            <h2 id="challenge-title">Can similar averages hide meaningful differences?</h2>
+            <p class="section-intro">A widely held neuroscience account proposes that social and monetary rewards draw on shared reward-related systems. But similar average activation does not, by itself, establish identical underlying processing.</p>
+            <p>In product terms, it is like seeing similar top-line engagement from recognition and reward points and assuming they are interchangeable. I wanted to test what might be missed by that conclusion.</p>
+            <div class="three-gaps" aria-label="Research gaps">
+              <div class="gap-item"><div class="num">01</div><h3>Indirect comparisons</h3><p>Earlier studies often involved different people, tasks, and incentives.</p></div>
+              <div class="gap-item"><div class="num">02</div><h3>Aggregate measures</h3><p>Averages may hide distinctions in patterns of response.</p></div>
+              <div class="gap-item"><div class="num">03</div><h3>Different motivations</h3><p>People vary in how much they value social approval.</p></div>
+            </div>
+          </section>
+          <section id="role" class="story-section" aria-labelledby="role-title">
+            <div class="kicker">02 / Ownership</div>
+            <h2 id="role-title">What I owned — and how I worked with others.</h2>
+            <p>I was the lead analyst and first author on a six-person team. The principal investigator established the larger research framework and core design; I owned the study execution, analytical decisions, synthesis, and dissemination.</p>
+            <div class="ownership">
+              <div class="ownership-main"><h3>My contribution</h3><p>Led recruitment and more than 500 hours of study execution; applied data-quality criteria; built the analysis pipeline; reconciled findings across methods; visualized results; and communicated them through a journal article, talks, and research showcases.</p></div>
+              <div class="ownership-side"><h3>Team context</h3><p>Initial concept, core experiment, funding, and target sample size belonged to the larger NSF-funded project.</p></div>
+            </div>
+            <details><summary>The methodological decision I helped navigate</summary><p>When the team needed an unfamiliar multivariate approach, I initiated a collaboration with a lab that had relevant expertise. Their researchers recommended a four-way classification rather than indirectly comparing two separate two-way models. I implemented and piloted the approach, evaluated validation choices, and brought evidence and tradeoffs to structured check-ins with senior collaborators.</p></details>
+          </section>
+          <section id="approach" class="story-section" aria-labelledby="approach-title">
+            <div class="kicker">03 / Research design</div>
+            <h2 id="approach-title">Same people. Both rewards. Multiple measures.</h2>
+            <p class="section-intro">All 107 adults experienced both social and monetary reward conditions, letting us compare them within the same participants.</p>
+            <div class="process" aria-label="Simplified experimental trial flow">
+              <div class="process-node"><div class="step">STEP 01</div><strong>See a cue</strong><p>A visual cue indicates the possible social or monetary reward.</p></div>
+              <div class="process-arrow" aria-hidden="true">→</div>
+              <div class="process-node"><div class="step">STEP 02</div><strong>Respond</strong><p>Participants respond quickly to a visual target.</p></div>
+              <div class="process-arrow" aria-hidden="true">→</div>
+              <div class="process-node"><div class="step">STEP 03</div><strong>Receive feedback</strong><p>Social approval or a wallet/coins animation indicates the result.</p></div>
+            </div>
+            <p>Each reward type had a separate no-reward baseline, cues were matched, and adaptive difficulty kept success near half of trials. The measures were chosen to capture different levels of evidence:</p>
+            <div class="method-bottom" aria-label="Research measures">
+              <span class="method-pill">Behavior · hit rate & reaction time</span>
+              <span class="method-pill">Neuroimaging · average activation & patterns</span>
+              <span class="method-pill">Survey · Need to Belong</span>
+            </div>
+            <p class="method-note">Reward anticipation unfolded over roughly 2.5 seconds — a moment that retrospective interviews alone would not capture reliably.</p>
+            <details><summary>Experiment conditions and data-quality details</summary><p><strong>Social feedback:</strong> a smiling face with a thumbs-up for reward, or a neutral expression for no reward. <strong>Monetary feedback:</strong> coins dropping into a wallet for reward, or a closing wallet with no coins. Each reward category had its own neutral baseline video.</p><p><strong>Quality control:</strong> 120 people were recruited; 13 were excluded under predefined criteria for movement, technical issues, or completing fewer than 75% of trials. Final analytic sample: 107.</p></details>
+          </section>
+          <section id="findings" class="story-section" aria-labelledby="findings-title">
+            <div class="kicker">04 / Key findings</div>
+            <h2 id="findings-title">Three findings. Three levels of resolution.</h2>
+            <p>Instead of relying on one outcome, I examined what was visible at the aggregate level, what emerged from finer-grained patterns, and what varied across participants.</p>
+            <article class="finding">
+              <span class="finding-label">Finding 01 — At the surface</span>
+              <h3>Reward helped performance; the benefit looked similar across reward types.</h3>
+              <p>When any reward was at stake, people were faster and more accurate than in no-reward anticipation. The reward-related behavioral boost did not significantly differ between social and monetary conditions; average neural responses also showed substantial overlap.</p>
+              <div class="finding-visual" role="group" aria-label="Observed behavioral results: pooled across social and monetary conditions, reward versus no-reward anticipation">
+                <div class="visual-label">Observed behavioral results · pooled across reward types</div>
+                <div class="stat-rows">
+                  <div class="stat-col">
+                    <div class="stat-heading">Hit rate</div>
+                    <div class="stat-sub">Higher when a reward was at stake</div>
+                    <div class="bar-row"><span class="bar-label">Reward</span><div class="bar-track"><div class="bar-fill" style="width:50%"></div></div><span class="bar-value">50%</span></div>
+                    <div class="bar-row"><span class="bar-label">No reward</span><div class="bar-track"><div class="bar-fill purple" style="width:45%"></div></div><span class="bar-value">45%</span></div>
+                  </div>
+                  <div class="stat-col">
+                    <div class="stat-heading">Reaction time</div>
+                    <div class="stat-sub">Lower is faster · reward vs. no reward</div>
+                    <div class="rt-pair"><strong class="blue">422</strong><span class="versus">vs.</span><strong class="purple">432</strong><span class="versus">ms</span></div>
+                    <div class="rt-note">Both reward-related effects: p &lt; .001.</div>
+                  </div>
+                </div>
+                <div class="visual-disclaimer">These compare reward vs. no-reward anticipation, pooled across social and monetary types; they are <strong>not</strong> a social-vs-money comparison. Rounded values from the study.</div>
+              </div>
+              <div class="interpretation"><strong>What this means:</strong> Top-line measures made the incentives look largely similar. A nonsignificant difference does not prove equivalence.</div>
+            </article>
+            <article class="finding">
+              <span class="finding-label">Finding 02 — Underneath</span>
+              <h3>More detailed neural patterns distinguished the reward conditions.</h3>
+              <p>A whole-brain multivariate analysis examined four conditions (social reward/no reward and monetary reward/no reward), testing on participants excluded from model training. In several regions, reward-vs-no-reward pattern separation differed between social and monetary conditions, including regions with similar mean activation (corrected p &lt; .05).</p>
+              <div class="finding-visual" role="group" aria-label="Conceptual illustration of different spatial patterns with similar summary values; not observed fMRI data">
+                <div class="visual-label">Why pattern-level analysis adds information</div>
+                <div class="matrix-compare">
+                  <div class="matrix-item">
+                    <div class="matrix-title">Pattern A</div>
+                    <div class="matrix" aria-hidden="true">
+                      <span class="hot"></span><span></span><span></span><span class="hot"></span><span></span>
+                      <span></span><span class="hot"></span><span></span><span></span><span></span>
+                      <span></span><span></span><span class="hot"></span><span></span><span class="hot"></span>
+                      <span></span><span></span><span></span><span class="hot"></span><span></span>
+                      <span class="hot"></span><span></span><span></span><span></span><span class="hot"></span>
+                    </div>
+                    <div class="matrix-sub">8 highlighted positions</div>
+                  </div>
+                  <div class="compare-mark" aria-hidden="true">≠</div>
+                  <div class="matrix-item">
+                    <div class="matrix-title">Pattern B</div>
+                    <div class="matrix two" aria-hidden="true">
+                      <span></span><span class="hot"></span><span></span><span></span><span class="hot"></span>
+                      <span class="hot"></span><span></span><span></span><span class="hot"></span><span></span>
+                      <span></span><span></span><span></span><span></span><span></span>
+                      <span></span><span class="hot"></span><span class="hot"></span><span></span><span></span>
+                      <span></span><span></span><span class="hot"></span><span class="hot"></span><span></span>
+                    </div>
+                    <div class="matrix-sub">Same count, different locations</div>
+                  </div>
+                </div>
+                <div class="visual-disclaimer">Conceptual illustration of information lost when patterns are summarized. <strong>Not</strong> real neural activation maps or classifier outputs.</div>
+              </div>
+              <div class="interpretation"><strong>What this means:</strong> Similar averages can coexist with distinguishable underlying representations. Different does not automatically mean better.</div>
+            </article>
+            <article class="finding">
+              <span class="finding-label">Finding 03 — Differences between people</span>
+              <h3>Need to Belong related to neural sensitivity — not measured behavior.</h3>
+              <p>Higher Need to Belong scores were associated with stronger social-relative-to-monetary neural responses in a reward/social-cognition region (corrected p &lt; .05). No significant association emerged for hit rate or reaction time (all ps &gt; .05).</p>
+              <div class="evidence-compare" aria-label="Comparison of neural and behavioral findings">
+                <div class="evidence positive"><span class="mini-label">Neural measure</span><h4>Association detected</h4><p>Higher Need to Belong → stronger social-relative-to-monetary neural response.</p></div>
+                <div class="evidence neutral"><span class="mini-label">Behavioral measures</span><h4>No significant association detected</h4><p>No significant relation with task hit rate or reaction time.</p></div>
+              </div>
+              <div class="interpretation"><strong>What this means:</strong> Belonging is worth testing as an individual-difference factor, not using as a validated product segment.</div>
+            </article>
+            <details><summary>An additional small effect I chose not to overinterpret</summary><p>Participants were around 4 ms faster when social feedback was possible (425 vs. 429 ms, p = .03). This effect did not significantly depend on whether a reward was at stake, so I did not interpret it as evidence that social reward was more motivating.</p></details>
+          </section>
+          <section id="implications" class="story-section" aria-labelledby="implications-title">
+            <div class="kicker">05 / Synthesis & product thinking</div>
+            <h2 id="implications-title">A useful lesson about what metrics miss.</h2>
+            <div class="synthesis">Similar outcomes don't always imply <em>identical underlying responses.</em></div>
+            <p>The apparent conflict between average and multivariate results was a difference in measurement resolution, not evidence that one reward was necessarily more effective. The product parallels below are <strong>hypotheses to test</strong>, not results from an in-product experiment.</p>
+            <div class="hypothesis-list">
+              <div class="hypothesis-item"><div class="num">01</div><div><h3>Investigate beyond the headline metric</h3><p>When two incentives produce similar engagement, compare usage paths, retention curves, and other granular behavioral evidence before deciding they are interchangeable.</p><div class="confidence">Basis: Findings 1–2 · Confidence: medium, product analogy untested</div></div></div>
+              <div class="hypothesis-item"><div class="num">02</div><div><h3>Combine behavioral and attitudinal evidence</h3><p>Test whether a short motivation measure adds information that clicks or conversion alone miss.</p><div class="confidence">Basis: Finding 3 · Confidence: medium, single-study association</div></div></div>
+              <div class="hypothesis-item"><div class="num">03</div><div><h3>Validate belonging before segmentation</h3><p>Examine whether social incentives affect real-world outcomes differently across users; do not personalize based on the lab finding alone.</p><div class="confidence">Basis: Finding 3 · Confidence: medium–low, correlational</div></div></div>
+            </div>
+            <p class="small-caveat"><strong>Important boundary:</strong> No significant difference is not proof of equivalence; neural distinctions do not establish different product outcomes. This was an academic laboratory study, not an A/B test.</p>
+          </section>
+          <section id="impact" class="story-section" aria-labelledby="impact-title">
+            <div class="kicker">06 / Contribution & next questions</div>
+            <h2 id="impact-title">A publication, a research contribution, and questions to carry forward.</h2>
+            <div class="impact-line"><div class="symbol" aria-hidden="true">↗</div><div><strong>First-author publication · Journal of Cognitive Neuroscience (2026)</strong><span>Shared across research presentations and peer-reviewed publication; no shipped product feature is claimed.</span></div></div>
+            <p>For product research, the skills I would carry forward include controlled comparison, combining attitudinal and behavioral measures, protecting data quality, evaluating tradeoffs, and communicating uncertainty clearly.</p>
+            <h3>What I would study next</h3>
+            <ol class="next-actions">
+              <li>Run a real product experiment comparing social recognition and reward points, with an a priori behavioral outcome such as retention and a brief belonging measure.</li>
+              <li>Interview users to understand when recognition feels meaningful or authentic, and test more ecologically valid social rewards.</li>
+              <li>Measure perceived reward value and examine whether neural differences relate to everyday social behavior, with appropriate consent.</li>
+            </ol>
+            <details><summary>Limitations and boundaries of the evidence</summary>
+              <p><strong>Reward matching:</strong> Social and monetary incentives were not calibrated to equal subjective value, so the study cannot determine which is inherently more motivating.</p>
+              <p><strong>Segmentation:</strong> Need to Belong was a correlational finding from one study, not a validated targeting rule.</p>
+              <p><strong>Sample:</strong> Adults aged 30–45, 78.5% women; findings cannot be assumed to generalize to all populations.</p>
+              <p><strong>Ecological validity:</strong> A stranger's approval in a brief video is a simplified proxy for social recognition in actual products.</p>
+            </details>
+          </section>
+          <div class="closing">
+            <div class="kicker">What this taught me</div>
+            <h2>The measure we choose shapes what we are able to see.</h2>
+            <p>“No difference detected” is not the same as “no difference exists.” Sometimes the limitation is the metric, not the experience.</p>
+            <a href="index.html#projects" class="button">← Back to projects</a>
+          </div>
         </article>
-        <article class="finding">
-          <div class="finding-number">Finding 02 / Underneath</div>
-          <h3>More fine-grained neural patterns revealed differences.</h3>
-          <p>A whole-brain multivariate analysis evaluated local activity patterns across four conditions: social reward, social no-reward, monetary reward, and monetary no-reward. Models were evaluated on a participant left out of training.</p>
-          <p>In several regions, the extent to which the pattern distinguished reward from no reward <strong>differed between social and monetary conditions</strong>, including where average activation had looked similar (corrected p &lt; .05).</p>
-          <div class="interpret"><p><strong>Interpretation:</strong> Overlapping mean activity did not imply identical neural representations. A more detailed measure captured information that averages did not.</p></div>
-        </article>
-        <article class="finding">
-          <div class="finding-number">Finding 03 / People</div>
-          <h3>Social reward response varied with Need to Belong.</h3>
-          <p>Participants with higher Need to Belong scores showed a stronger <strong>social-relative-to-monetary neural response</strong> in a region relevant to both reward and social cognition (corrected p &lt; .05). Need to Belong was not significantly associated with hit rate or reaction time (all ps &gt; .05).</p>
-          <div class="interpret"><p><strong>Interpretation:</strong> This correlational association identifies a possible dimension for future investigation, not a validated user segment or a behavioral prediction.</p></div>
-        </article>
-        <details><summary>A small behavioral result I chose not to overinterpret</summary><p>Participants responded about 4 ms faster when social feedback was possible (425 vs. 429 ms, p = .03). The effect was small and did not significantly depend on whether reward was at stake, so I did not frame it as evidence that social reward was more motivating.</p></details>
       </div>
-    </section>
-
-    <section class="section container" aria-labelledby="interpret-title">
-      <div class="reading">
-        <div class="kicker">05 / Synthesis</div>
-        <h2 id="interpret-title">Different measurements answered different questions.</h2>
-        <p>At first, the results seemed inconsistent: averages suggested overlap, while activity patterns indicated differences. I understood this as a question of <strong>measurement resolution</strong>, not a contradiction.</p>
-        <p>Two user journeys can end at the same conversion rate while involving very different paths. Similarly, two reward conditions can produce similar mean responses while containing distinguishable patterns. But a neural difference does not establish that the rewards have different real-world product outcomes.</p>
-        <div class="callout"><p><strong>What I did not claim:</strong> “No significant difference” does not establish equivalence. “Different neural representation” does not mean one incentive is better. This study does not demonstrate that belonging is a ready-to-use targeting variable.</p></div>
-      </div>
-    </section>
-
-    <section class="section container" aria-labelledby="product-title">
-      <div class="reading">
-        <div class="kicker">06 / Product thinking</div>
-        <h2 id="product-title">Product hypotheses worth testing</h2>
-        <p>These are possible research directions informed by a controlled lab experiment. None should drive targeting or a roadmap without validation using real product data.</p>
-      </div>
-      <div class="hypotheses">
-        <article class="hypothesis"><div class="priority">01</div><div><h3>Look beyond matching top-line results.</h3><p>If social recognition and reward points yield comparable engagement, compare more granular behavioral evidence—such as retention curves or usage paths—and consider qualitative follow-up before treating them as interchangeable.</p><p class="confidence"><strong>Evidence:</strong> Findings 1–2 · <strong>Confidence:</strong> Medium; the product analogy is not itself directly tested.</p></div></article>
-        <article class="hypothesis"><div class="priority">02</div><div><h3>Pair behavioral metrics with a motivational measure.</h3><p>A short attitudinal survey may help investigate differences that click-through, speed, or conversion metrics do not show. Validate whether this adds predictive value in the product setting.</p><p class="confidence"><strong>Evidence:</strong> Finding 3 · <strong>Confidence:</strong> Medium; based on one study's individual-difference association.</p></div></article>
-        <article class="hypothesis"><div class="priority">03</div><div><h3>Explore belonging, but do not personalize yet.</h3><p>Test whether the effect of social incentives on meaningful product outcomes varies with belonging-related motivations. Treat belonging as a candidate research variable rather than an established segment.</p><p class="confidence"><strong>Evidence:</strong> Finding 3 · <strong>Confidence:</strong> Medium–low; correlational and not yet behaviorally validated.</p></div></article>
-      </div>
-    </section>
-
-    <section class="section container" aria-labelledby="impact-title">
-      <div class="reading">
-        <div class="kicker">07 / Contribution and boundaries</div>
-        <h2 id="impact-title">Impact, with limits made clear</h2>
-        <p>The main outcome was a <strong>first-author publication in the Journal of Cognitive Neuroscience (2026)</strong> and a more nuanced understanding of reward processing. I shared the research through talks, showcases, and peer-reviewed writing. This work did <strong>not</strong> produce a shipped product feature.</p>
-        <p>For product research, the transferable skills are controlled experimentation, combining behavioral and attitudinal measures, quality-control judgment, reconciling complex evidence, and explaining uncertainty to different audiences.</p>
-        <h3 style="margin-top:30px">What the study could not tell us</h3>
-        <ul class="clean-list">
-          <li><strong>Which reward is inherently stronger:</strong> social and monetary incentives were not calibrated to the same subjective-value scale.</li>
-          <li><strong>Whether belonging defines an actionable user segment:</strong> the association was correlational and observed in a single study.</li>
-          <li><strong>How broadly results generalize:</strong> participants were adults aged 30–45 (78.5% women), with a sample size constrained by funding.</li>
-          <li><strong>Whether results translate directly to products:</strong> a stranger's approval in a brief video is not equivalent to feedback from friends, colleagues, or communities.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section container" aria-labelledby="next-title">
-      <div class="reading">
-        <div class="kicker">08 / Next steps</div>
-        <h2 id="next-title">What I would investigate next</h2>
-        <ol class="clean-list">
-          <li><strong>Run an in-product incentive comparison</strong> with a short Need to Belong measure and a prespecified behavioral outcome such as retention.</li>
-          <li><strong>Interview users with different belonging motivations</strong> to understand when recognition feels valuable and authentic.</li>
-          <li><strong>Use more realistic social feedback and perceived-value ratings</strong> to improve ecological validity and subjective-value matching.</li>
-          <li><strong>Study links to everyday social behavior</strong> with appropriate consent, to test whether neural response differences have external behavioral relevance.</li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="ending container" aria-label="Closing reflection">
-      <div class="kicker">What I learned</div>
-      <h2>The measure we choose shapes what we are able to see.</h2>
-      <p>“No difference detected” is not the same as “no difference exists.” Sometimes a flat result reflects what the measure cannot see—not the absence of a meaningful distinction.</p>
-      <a href="index.html#projects" class="button">← Back to projects</a>
-    </section>
+    </div>
   </main>
+  <button class="back-top" id="back-top" type="button" aria-label="Back to top">↑</button>
   <footer><div class="container footer-inner"><span>© <span id="year">2026</span> Yanni Jiang · Made with curiosity.</span><a href="mailto:yanni.jiang@utexas.edu">Let's connect ↗</a></div></footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    (function () {
+      const bar = document.querySelector('#reading-progress');
+      const fill = bar.querySelector('.fill');
+      const topButton = document.querySelector('#back-top');
+      const links = Array.from(document.querySelectorAll('#desktop-toc a'));
+      const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+      let scheduled = false;
+      function update() {
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        const progress = maxScroll === 0 ? 100 : Math.min(100, Math.max(0, window.scrollY / maxScroll * 100));
+        fill.style.transform = 'scaleX(' + (progress / 100) + ')';
+        bar.setAttribute('aria-valuenow', String(Math.round(progress)));
+        topButton.classList.toggle('visible', window.scrollY > 550);
+        let activeId = '';
+        for (const section of sections) {
+          if (section.getBoundingClientRect().top <= 165) activeId = section.id;
+        }
+        links.forEach(a => {
+          const current = a.getAttribute('href') === '#' + activeId;
+          a.classList.toggle('active', current);
+          if (current) a.setAttribute('aria-current', 'location');
+          else a.removeAttribute('aria-current');
+        });
+        scheduled = false;
+      }
+      function scheduleUpdate() {
+        if (!scheduled) { scheduled = true; requestAnimationFrame(update); }
+      }
+      window.addEventListener('scroll', scheduleUpdate, { passive: true });
+      window.addEventListener('resize', scheduleUpdate);
+      window.addEventListener('load', scheduleUpdate);
+      topButton.addEventListener('click', () => {
+        window.scrollTo({ top:0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+      });
+      document.getElementById('year').textContent = new Date().getFullYear();
+      update();
+    }());
+  </script>
 </body>
 </html>
