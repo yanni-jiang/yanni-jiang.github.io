@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html data-theme="light" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#111820">
-  <meta name="description" content="Yanni Jiang's UX research portfolio — behavioral science, quantitative and mixed-methods research, and selected projects.">
-  <title>Yanni Jiang | UX Research</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/><script>try{document.documentElement.dataset.theme=localStorage.getItem('case-study-theme')==='dark'?'dark':'light'}catch(e){}</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#111820" name="theme-color"/>
+<meta content="Yanni Jiang's UX research portfolio — behavioral science, quantitative and mixed-methods research, and selected projects." name="description"/>
+<title>Yanni Jiang | UX Research</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
     /* Change the theme here — the rest of the page uses these variables. */
     :root {
       --bg: #111820;
@@ -194,163 +195,151 @@
       *, *::before, *::after { transition: none !important; }
     }
   </style>
-</head>
+<style>:root{--header:rgba(17,24,32,.96);--wash:rgba(183,168,217,.07);--soft:#8397a7;color-scheme:dark}
+:root[data-theme="light"]{--bg:#fffaf6;--surface:#fffdfb;--surface-soft:#f7eeed;--text:#302e32;--muted:#65616a;--soft:#766b76;--blue:#a34863;--purple:#78648f;--orange:#c56d42;--border:#e7d9de;--header:rgba(255,250,246,.96);--wash:#f5eef4;color-scheme:light}
+.site-header{background:var(--header)}.site-nav{gap:20px}#theme-toggle{font-family:inherit;font-size:12px;font-weight:600;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;padding:9px 13px;border:1px solid var(--border);border-radius:24px;background:var(--surface-soft);color:var(--text);cursor:pointer}#theme-toggle span:first-child{font-size:17px}.hero-aside{background:linear-gradient(145deg,var(--surface),var(--surface-soft));box-shadow:0 8px 28px rgba(80,55,70,.035)}.hobby-tile{background:var(--surface-soft)}.hobby-tile:nth-child(2){background:var(--wash)}.button:hover{background:var(--purple)}.project-card:hover{border-color:var(--purple)}
+[data-theme="light"] body{background:radial-gradient(ellipse at 4% 8%,#fae8dc55,transparent 30%),radial-gradient(ellipse at 85% 15%,#ece6f255,transparent 30%),var(--bg)}
+.project-art{min-height:240px}.project-art svg{max-height:240px}.reward-cover{display:block;text-decoration:none;background:linear-gradient(130deg,var(--surface-soft),var(--wash));padding:10px 0}.reward-cover svg{display:block;width:100%;max-width:none;max-height:none;height:auto}.cover-eyebrow{font:600 9px 'DM Sans',sans-serif;letter-spacing:1.6px;fill:var(--purple)}.cover-title{font:600 27px 'Space Grotesk',sans-serif;letter-spacing:-.7px;fill:var(--text)}.cover-label{font:500 11px 'DM Sans',sans-serif;fill:var(--muted)}.cover-note{font:400 9px 'DM Sans',sans-serif;fill:var(--soft)}.project-body h3 a{text-decoration:none}.project-body h3 a:hover{color:var(--blue)}.case-study-link{display:inline-flex;align-items:center;gap:17px;margin-top:23px;padding:11px 16px;background:var(--wash);color:var(--blue);border:1px solid var(--border);border-radius:8px;text-decoration:none;font-size:13px;font-weight:700}.case-study-link:hover{border-color:var(--blue)}details{border:0;padding-top:4px}summary{font-weight:600}details[open] p{padding:13px 15px;border-radius:8px;background:var(--surface-soft)}.project-card{display:flex;flex-direction:column}.project-body{flex:1}.project-grid{align-items:start}.featured-project .project-desc{margin-bottom:16px}
+@media(max-width:900px){.hero{padding-block:65px 75px}.site-nav{gap:14px}}
+@media(max-width:640px){.header-inner{gap:14px}.site-nav{gap:12px}.site-nav a{font-size:12px}.site-nav .contact-link{padding:7px 9px}#theme-toggle{font-size:11px;padding:7px 10px}.project-art{min-height:190px}.reward-cover{min-height:0}.hero{padding-top:48px}.hero-actions{gap:20px}.intro{line-height:1.8}}
+</style><style>.project-art{aspect-ratio:2/1;min-height:0;padding:0}.project-art svg{width:100%;max-width:100%;max-height:100%}.reward-cover svg{height:100%}</style><style>.animated-reward-cover{position:relative;background:linear-gradient(135deg,var(--surface-soft),var(--wash));aspect-ratio:2/1;padding:0;overflow:hidden}.animated-reward-cover picture,.animated-reward-cover img{display:block;width:100%;height:100%;object-fit:contain}.cover-subject{position:absolute;bottom:7%;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transform:translateX(-50%)}.cover-subject.social{left:27%}.cover-subject.monetary{left:72%}</style></head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="#home" aria-label="Yanni Jiang, home">Yanni Jiang<span class="logo-dot">.</span></a>
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href="#home" aria-current="page">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#beyond">Beyond</a>
-        <a class="contact-link" href="mailto:yanni.jiang@utexas.edu">Contact ↗</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="home">
-    <section class="hero container" aria-labelledby="hero-title">
-      <div>
-        <div class="eyebrow"><span class="dot" aria-hidden="true"></span> UX Research · Behavioral Science</div>
-        <h1 id="hero-title">Curious minds ask <span class="highlight">better questions.</span></h1>
-        <p class="intro">Hi, I'm <strong>Yanni</strong>, a Psychology PhD student at <strong>The University of Texas at Austin</strong>. I combine experiments, surveys, interviews, and data analysis to understand how people think, make decisions, and interact with others.</p>
-        <div class="hero-actions">
-          <a class="button" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
-          <a class="text-link" href="#beyond">A little beyond research ↗</a>
-        </div>
-      </div>
-
-      <aside class="hero-aside" aria-label="Research philosophy illustration">
-        <div class="aside-top"><span>Field notes</span><span>01 / 03</span></div>
-        <svg class="aside-art" viewBox="0 0 280 230" role="img" aria-label="A conceptual diagram connecting questions, evidence, and insights">
-          <defs>
-            <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#94C9E7"/>
-              <stop offset="1" stop-color="#B7A8D9"/>
-            </linearGradient>
-          </defs>
-          <path d="M61 68 C128 15 166 35 220 90 S177 185 110 182 S22 138 61 68" fill="none" stroke="url(#lineGradient)" stroke-width="1.5" opacity=".75"/>
-          <path d="M61 68 L220 90 L110 182 Z" fill="none" stroke="#6F8294" stroke-width="1.2" stroke-dasharray="4 6" opacity=".7"/>
-          <circle cx="61" cy="68" r="10" fill="#94C9E7"/>
-          <circle cx="220" cy="90" r="10" fill="#B7A8D9"/>
-          <circle cx="110" cy="182" r="10" fill="#94C9E7"/>
-          <circle cx="61" cy="68" r="23" fill="none" stroke="#94C9E7" opacity=".25"/>
-          <circle cx="220" cy="90" r="23" fill="none" stroke="#B7A8D9" opacity=".25"/>
-          <circle cx="110" cy="182" r="23" fill="none" stroke="#94C9E7" opacity=".25"/>
-          <g fill="#CBD8E2" font-family="DM Sans, sans-serif" font-size="11">
-            <text x="21" y="32">ASK</text>
-            <text x="215" y="52">TEST</text>
-            <text x="127" y="217">CONNECT</text>
-          </g>
-        </svg>
-        <div class="aside-caption">From better questions to clearer insights.</div>
-        <p class="aside-sub">Curiosity guides the question. Evidence shapes the answer.</p>
-      </aside>
-    </section>
-
-    <section class="projects container" id="projects" aria-labelledby="projects-title">
-      <div class="section-heading">
-        <div>
-          <div class="section-kicker">Selected research</div>
-          <h2 id="projects-title">Projects</h2>
-        </div>
-        <p class="section-note">A few questions I've explored.</p>
-      </div>
-      <div class="project-grid">
-        <article class="project-card">
-          <div class="project-art">
-            <svg viewBox="0 0 440 215" role="img" aria-label="Abstract blue and lavender neural patterns, not actual study data">
-              <g fill="none" stroke-width="1.7" opacity=".95">
-                <ellipse cx="220" cy="107" rx="137" ry="70" stroke="#94C9E7" transform="rotate(-11 220 107)"/>
-                <ellipse cx="220" cy="107" rx="118" ry="59" stroke="#B7A8D9" transform="rotate(-5 220 107)"/>
-                <ellipse cx="220" cy="107" rx="97" ry="49" stroke="#94C9E7" transform="rotate(7 220 107)"/>
-                <ellipse cx="220" cy="107" rx="77" ry="39" stroke="#B7A8D9" transform="rotate(-8 220 107)"/>
-                <ellipse cx="220" cy="107" rx="56" ry="28" stroke="#94C9E7" transform="rotate(13 220 107)"/>
-                <ellipse cx="220" cy="107" rx="36" ry="17" stroke="#B7A8D9"/>
-              </g>
-              <circle cx="220" cy="107" r="5" fill="#94C9E7"/>
-              <circle cx="335" cy="49" r="2.7" fill="#F8971F"/>
-            </svg>
-          </div>
-          <div class="project-body">
-            <div class="project-type">01 / Experimental research</div>
-            <h3>Same Score, Different Story</h3>
-            <p class="project-desc">When social and monetary rewards lead to similar outcomes, are they really interchangeable?</p>
-            <div class="tags"><span class="tag">Behavioral experiments</span><span class="tag">Quantitative analysis</span><span class="tag">fMRI</span></div>
-            <details>
-              <summary>Project snapshot</summary>
-              <p>A controlled study of 107 adults found comparable behavioral effects of social and monetary rewards, alongside differences in finer-grained neural response patterns. First-author research published in 2026. A full case study page is coming next.</p>
-            </details>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-art">
-            <svg viewBox="0 0 440 215" role="img" aria-label="Conceptual network illustrating paths and decision points, not study data">
-              <g fill="none" stroke="#60778A" stroke-width="1.3" opacity=".65">
-                <path d="M80 150 L145 88 L213 123 L279 56 L365 100"/>
-                <path d="M80 150 L190 167 L279 56 M145 88 L190 167 L365 100 M213 123 L365 100" stroke-dasharray="5 7"/>
-              </g>
-              <path d="M80 150 L145 88 L213 123 L279 56 L365 100" fill="none" stroke="#94C9E7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              <g fill="#B7A8D9">
-                <circle cx="80" cy="150" r="8"/><circle cx="145" cy="88" r="8"/>
-                <circle cx="213" cy="123" r="8"/><circle cx="279" cy="56" r="8"/>
-                <circle cx="365" cy="100" r="8"/>
-              </g>
-              <circle cx="190" cy="167" r="5" fill="#94C9E7"/>
-              <circle cx="365" cy="100" r="3" fill="#F8971F"/>
-            </svg>
-          </div>
-          <div class="project-body">
-            <div class="project-type">02 / Applied research</div>
-            <h3>Understanding Founder Needs at Boxsy</h3>
-            <p class="project-desc">Exploring founder workflows, adoption barriers, and opportunities to make an AI-powered platform more useful.</p>
-            <div class="tags"><span class="tag">User research</span><span class="tag">Surveys</span><span class="tag">Competitive analysis</span></div>
-            <details>
-              <summary>Project snapshot</summary>
-              <p>Applied research combining founder feedback, survey evidence, and competitive analysis to inform product positioning and research priorities. The full case study will be added after the findings are finalized for public sharing.</p>
-            </details>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="beyond" id="beyond" aria-labelledby="beyond-title">
-      <div class="container beyond-inner">
-        <div>
-          <div class="section-kicker">Outside of research</div>
-          <h2 id="beyond-title">A little beyond the data.</h2>
-          <p>When I'm not researching, I enjoy baking and capturing little moments through photography. A few of my favorite things will find a home here.</p>
-        </div>
-        <div class="hobby-grid">
-          <div class="hobby-tile">
-            <svg viewBox="0 0 80 80" aria-hidden="true">
-              <path d="M16 49 C20 35 60 35 64 49 L60 65 H20 Z" fill="none" stroke="#B7A8D9" stroke-width="2.3" stroke-linejoin="round"/>
-              <path d="M23 42 C23 27 35 23 40 30 C47 20 60 28 57 42" fill="none" stroke="#94C9E7" stroke-width="2.3" stroke-linecap="round"/>
-              <path d="M31 20 C28 16 30 10 33 8 M46 20 C43 16 45 10 48 8" stroke="#94C9E7" stroke-width="2" fill="none" stroke-linecap="round"/>
-            </svg>
-            <div><span>From my kitchen</span><small>Baking</small></div>
-          </div>
-          <div class="hobby-tile">
-            <svg viewBox="0 0 80 80" aria-hidden="true">
-              <rect x="13" y="25" width="54" height="39" rx="7" fill="none" stroke="#B7A8D9" stroke-width="2.3"/>
-              <circle cx="40" cy="45" r="13" fill="none" stroke="#94C9E7" stroke-width="2.3"/>
-              <circle cx="40" cy="45" r="6" fill="none" stroke="#94C9E7" stroke-width="1.5"/>
-              <path d="M25 25 L30 18 H48 L53 25" fill="none" stroke="#B7A8D9" stroke-width="2.3" stroke-linejoin="round"/>
-            </svg>
-            <div><span>Through my lens</span><small>Photography</small></div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-inner">
-      <p>© <span id="year">2026</span> Yanni Jiang · Made with curiosity.</p>
-      <a href="mailto:yanni.jiang@utexas.edu">Let's connect ↗</a>
-    </div>
-  </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</body>
+<header class="site-header">
+<div class="container header-inner">
+<a aria-label="Yanni Jiang, home" class="logo" href="#home">Yanni Jiang<span class="logo-dot">.</span></a>
+<nav aria-label="Main navigation" class="site-nav">
+<a aria-current="page" href="#home">Home</a>
+<a href="#projects">Projects</a>
+<a href="#beyond">Beyond</a>
+<a class="contact-link" href="mailto:yanni.jiang@utexas.edu">Contact ↗</a>
+<button aria-label="Switch to dark theme" aria-pressed="false" id="theme-toggle" type="button"><span aria-hidden="true">◐</span> <span id="theme-label">Dark theme</span></button></nav>
+</div>
+</header>
+<main id="home">
+<section aria-labelledby="hero-title" class="hero container">
+<div>
+<div class="eyebrow"><span aria-hidden="true" class="dot"></span> UX Research · Behavioral Science</div>
+<h1 id="hero-title">Curious minds ask <span class="highlight">better questions.</span></h1>
+<p class="intro">Hi, I'm <strong>Yanni</strong>, a Psychology PhD student at <strong>The University of Texas at Austin</strong>. I study how people make decisions and what motivates them, connecting behavioral evidence with people’s perspectives to understand the needs behind their actions.</p>
+<div class="hero-actions">
+<a class="button" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+<a class="text-link" href="#beyond">A little beyond research ↗</a>
+</div>
+</div>
+<aside aria-label="Research philosophy illustration" class="hero-aside">
+<div class="aside-top"><span>Field notes</span><span>01 / 03</span></div>
+<svg aria-label="A conceptual diagram connecting questions, evidence, and insights" class="aside-art" role="img" viewbox="0 0 280 230">
+<defs>
+<lineargradient id="lineGradient" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0" stop-color="var(--blue)"></stop>
+<stop offset="1" stop-color="var(--purple)"></stop>
+</lineargradient>
+</defs>
+<path d="M61 68 C128 15 166 35 220 90 S177 185 110 182 S22 138 61 68" fill="none" opacity=".75" stroke="url(#lineGradient)" stroke-width="1.5"></path>
+<path d="M61 68 L220 90 L110 182 Z" fill="none" opacity=".7" stroke="#6F8294" stroke-dasharray="4 6" stroke-width="1.2"></path>
+<circle cx="61" cy="68" fill="var(--blue)" r="10"></circle>
+<circle cx="220" cy="90" fill="var(--purple)" r="10"></circle>
+<circle cx="110" cy="182" fill="var(--blue)" r="10"></circle>
+<circle cx="61" cy="68" fill="none" opacity=".25" r="23" stroke="var(--blue)"></circle>
+<circle cx="220" cy="90" fill="none" opacity=".25" r="23" stroke="var(--purple)"></circle>
+<circle cx="110" cy="182" fill="none" opacity=".25" r="23" stroke="var(--blue)"></circle>
+<g fill="var(--muted)" font-family="DM Sans, sans-serif" font-size="11">
+<text x="21" y="32">ASK</text>
+<text x="215" y="52">TEST</text>
+<text x="127" y="217">CONNECT</text>
+</g>
+</svg>
+<div class="aside-caption">From better questions to clearer insights.</div>
+<p class="aside-sub">Curiosity guides the question. Evidence shapes the answer.</p>
+</aside>
+</section>
+<section aria-labelledby="projects-title" class="projects container" id="projects">
+<div class="section-heading">
+<div>
+<div class="section-kicker">Selected research</div>
+<h2 id="projects-title">Projects</h2>
+</div>
+<p class="section-note">A few questions I've explored.</p>
+</div>
+<div class="project-grid">
+<article class="project-card featured-project">
+<a aria-label="Read Same Score, Different Story" class="project-art reward-cover animated-reward-cover" href="same-score-different-story.html"><picture><source media="(prefers-reduced-motion: reduce)" srcset="media/rewards-cover-still.webp"/><img alt="Original animated illustration: a woman smiles and gives a thumbs-up beside a wallet receiving coins." decoding="async" height="260" src="media/rewards-cover.webp" width="520"/></picture><span class="cover-subject social">Social</span><span class="cover-subject monetary">Monetary</span></a>
+<div class="project-body">
+<div class="project-type">01 / Experimental research</div>
+<h3><a href="same-score-different-story.html">Same Score, Different Story</a></h3>
+<p class="project-desc">When social and monetary rewards lead to similar outcomes, are they really interchangeable?</p>
+<div class="tags"><span class="tag">Behavioral experiments</span><span class="tag">Quantitative analysis</span><span class="tag">fMRI</span></div>
+<details>
+<summary>Project snapshot</summary>
+<p>In a controlled study of 107 adults, social and monetary rewards produced comparable improvements in task performance relative to control conditions, while finer-grained analyses distinguished their neural activity patterns during reward anticipation. Higher Need to Belong was associated with a stronger social-relative-to-monetary neural response, without a significant association with task performance. This correlation does not establish a user segment. First-author publication in the Journal of Cognitive Neuroscience (2026).</p>
+</details>
+<a class="case-study-link" href="same-score-different-story.html">Read the case study <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="project-card">
+<div class="project-art">
+<svg aria-label="Conceptual network illustrating paths and decision points, not study data" role="img" viewbox="0 0 440 215">
+<g fill="none" opacity=".65" stroke="#60778A" stroke-width="1.3">
+<path d="M80 150 L145 88 L213 123 L279 56 L365 100"></path>
+<path d="M80 150 L190 167 L279 56 M145 88 L190 167 L365 100 M213 123 L365 100" stroke-dasharray="5 7"></path>
+</g>
+<path d="M80 150 L145 88 L213 123 L279 56 L365 100" fill="none" stroke="var(--blue)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<g fill="var(--purple)">
+<circle cx="80" cy="150" r="8"></circle><circle cx="145" cy="88" r="8"></circle>
+<circle cx="213" cy="123" r="8"></circle><circle cx="279" cy="56" r="8"></circle>
+<circle cx="365" cy="100" r="8"></circle>
+</g>
+<circle cx="190" cy="167" fill="var(--blue)" r="5"></circle>
+<circle cx="365" cy="100" fill="var(--orange)" r="3"></circle>
+</svg>
+</div>
+<div class="project-body">
+<div class="project-type">02 / Applied research</div>
+<h3>Understanding Founder Needs at Boxsy</h3>
+<p class="project-desc">Exploring founder workflows, adoption barriers, and opportunities to make an AI-powered platform more useful.</p>
+<div class="tags"><span class="tag">User research</span><span class="tag">Surveys</span><span class="tag">Competitive analysis</span></div>
+<details>
+<summary>Project snapshot</summary>
+<p>Applied research combining founder feedback, survey evidence, and competitive analysis to inform product positioning and research priorities. The full case study will be added after the findings are finalized for public sharing.</p>
+</details>
+</div>
+</article>
+</div>
+</section>
+<section aria-labelledby="beyond-title" class="beyond" id="beyond">
+<div class="container beyond-inner">
+<div>
+<div class="section-kicker">Outside of research</div>
+<h2 id="beyond-title">A little beyond the data.</h2>
+<p>When I'm not researching, I enjoy baking and capturing little moments through photography. A few of my favorite things will find a home here.</p>
+</div>
+<div class="hobby-grid">
+<div class="hobby-tile">
+<svg aria-hidden="true" viewbox="0 0 80 80">
+<path d="M16 49 C20 35 60 35 64 49 L60 65 H20 Z" fill="none" stroke="var(--purple)" stroke-linejoin="round" stroke-width="2.3"></path>
+<path d="M23 42 C23 27 35 23 40 30 C47 20 60 28 57 42" fill="none" stroke="var(--blue)" stroke-linecap="round" stroke-width="2.3"></path>
+<path d="M31 20 C28 16 30 10 33 8 M46 20 C43 16 45 10 48 8" fill="none" stroke="var(--blue)" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+<div><span>From my kitchen</span><small>Baking</small></div>
+</div>
+<div class="hobby-tile">
+<svg aria-hidden="true" viewbox="0 0 80 80">
+<rect fill="none" height="39" rx="7" stroke="var(--purple)" stroke-width="2.3" width="54" x="13" y="25"></rect>
+<circle cx="40" cy="45" fill="none" r="13" stroke="var(--blue)" stroke-width="2.3"></circle>
+<circle cx="40" cy="45" fill="none" r="6" stroke="var(--blue)" stroke-width="1.5"></circle>
+<path d="M25 25 L30 18 H48 L53 25" fill="none" stroke="var(--purple)" stroke-linejoin="round" stroke-width="2.3"></path>
+</svg>
+<div><span>Through my lens</span><small>Photography</small></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="container footer-inner">
+<p>© <span id="year">2026</span> Yanni Jiang · Made with curiosity.</p>
+<a href="mailto:yanni.jiang@utexas.edu">Let's connect ↗</a>
+</div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>(()=>{const button=document.getElementById('theme-toggle');function sync(){const dark=document.documentElement.dataset.theme==='dark';button.setAttribute('aria-pressed',String(dark));button.setAttribute('aria-label',dark?'Switch to light theme':'Switch to dark theme');document.getElementById('theme-label').textContent=dark?'Light theme':'Dark theme';document.querySelector('meta[name="theme-color"]').content=dark?'#111820':'#fffaf6'}button.addEventListener('click',()=>{const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=theme;try{localStorage.setItem('case-study-theme',theme)}catch(e){}sync()});sync();window.addEventListener('pageshow',()=>{try{document.documentElement.dataset.theme=localStorage.getItem('case-study-theme')==='dark'?'dark':'light'}catch(e){}sync()});})();</script></body>
 </html>
