@@ -122,11 +122,14 @@
     .button:hover { transform: translateY(-2px); background: #B3DDF3; }
     .text-link { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 600; border-bottom: 1px solid transparent; padding-bottom: 3px; }
     .text-link:hover { color: var(--purple); border-color: var(--purple); }
-    .hero-aside { position: relative; padding: 29px; border: 1px solid var(--border); background: linear-gradient(160deg, #1B2836, #151E29); border-radius: 24px; }
-    .aside-top { display: flex; justify-content: space-between; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; }
-    .aside-art { width: 100%; margin: 20px auto 16px; display: block; }
-    .aside-caption { color: var(--text); font-size: 16px; font-weight: 600; line-height: 1.5; }
-    .aside-sub { color: var(--muted); font-size: 13px; line-height: 1.6; margin: 7px 0 0; }
+    .hero-portrait { position: relative; width: min(100%, 330px); aspect-ratio: 1; justify-self: center; }
+    .portrait-ring { position: absolute; inset: 0; border: 1px solid var(--border); border-radius: 50%; }
+    .portrait-ring::before { content: ""; position: absolute; inset: -12px; border: 1px dashed var(--border); border-radius: 50%; }
+    .portrait-img { position: absolute; inset: 6.7%; width: 86.6%; height: 86.6%; display: block; object-fit: cover; border-radius: 50%; box-shadow: 0 18px 40px -18px rgba(120, 60, 80, .35); }
+    [data-theme="dark"] .portrait-img { box-shadow: 0 18px 40px -18px rgba(0, 0, 0, .6); }
+    .portrait-dot { position: absolute; width: 16px; height: 16px; border-radius: 50%; }
+    .portrait-dot.a { left: 8.5%; top: 14%; background: var(--blue); }
+    .portrait-dot.b { right: 4.8%; top: 37%; background: var(--purple); }
 
     /* Sections and cards */
     section { scroll-margin-top: 26px; }
@@ -171,7 +174,8 @@
 
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; padding-block: 80px 90px; }
-      .hero-aside { display: none; }
+      .hero-portrait { order: -1; width: 168px; justify-self: start; margin: 12px 0 0 12px; }
+      .portrait-dot { width: 12px; height: 12px; }
       .beyond-inner { grid-template-columns: 1fr; }
       .beyond p { max-width: 650px; }
     }
@@ -197,9 +201,9 @@
   </style>
 <style>:root{--header:rgba(17,24,32,.96);--wash:rgba(183,168,217,.07);--soft:#8397a7;color-scheme:dark}
 :root[data-theme="light"]{--bg:#fffaf6;--surface:#fffdfb;--surface-soft:#f7eeed;--text:#302e32;--muted:#65616a;--soft:#766b76;--blue:#a34863;--purple:#78648f;--orange:#c56d42;--border:#e7d9de;--header:rgba(255,250,246,.96);--wash:#f5eef4;color-scheme:light}
-.site-header{background:var(--header)}.site-nav{gap:20px}#theme-toggle{font-family:inherit;font-size:12px;font-weight:600;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;padding:9px 13px;border:1px solid var(--border);border-radius:24px;background:var(--surface-soft);color:var(--text);cursor:pointer}#theme-toggle span:first-child{font-size:17px}.hero-aside{background:linear-gradient(145deg,var(--surface),var(--surface-soft));box-shadow:0 8px 28px rgba(80,55,70,.035)}.hobby-tile{background:var(--surface-soft)}.hobby-tile:nth-child(2){background:var(--wash)}.button:hover{background:var(--purple)}.project-card:hover{border-color:var(--purple)}
+.site-header{background:var(--header)}.site-nav{gap:20px}#theme-toggle{font-family:inherit;font-size:12px;font-weight:600;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;padding:9px 13px;border:1px solid var(--border);border-radius:24px;background:var(--surface-soft);color:var(--text);cursor:pointer}#theme-toggle span:first-child{font-size:17px}.hobby-tile{background:var(--surface-soft)}.hobby-tile:nth-child(2){background:var(--wash)}.button:hover{background:var(--purple)}.project-card:hover{border-color:var(--purple)}
 [data-theme="light"] body{background:radial-gradient(ellipse at 4% 8%,#fae8dc55,transparent 30%),radial-gradient(ellipse at 85% 15%,#ece6f255,transparent 30%),var(--bg)}
-.project-art{min-height:240px}.project-art svg{max-height:240px}.reward-cover{display:block;text-decoration:none;background:linear-gradient(130deg,var(--surface-soft),var(--wash));padding:10px 0}.reward-cover svg{display:block;width:100%;max-width:none;max-height:none;height:auto}.cover-eyebrow{font:600 9px 'DM Sans',sans-serif;letter-spacing:1.6px;fill:var(--purple)}.cover-title{font:600 27px 'Space Grotesk',sans-serif;letter-spacing:-.7px;fill:var(--text)}.cover-label{font:500 11px 'DM Sans',sans-serif;fill:var(--muted)}.cover-note{font:400 9px 'DM Sans',sans-serif;fill:var(--soft)}.project-body h3 a{text-decoration:none}.project-body h3 a:hover{color:var(--blue)}.case-study-link{display:inline-flex;align-items:center;gap:17px;margin-top:23px;padding:11px 16px;background:var(--wash);color:var(--blue);border:1px solid var(--border);border-radius:8px;text-decoration:none;font-size:13px;font-weight:700}.case-study-link:hover{border-color:var(--blue)}details{border:0;padding-top:4px}summary{font-weight:600}details[open] p{padding:13px 15px;border-radius:8px;background:var(--surface-soft)}.project-card{display:flex;flex-direction:column}.project-body{flex:1}.project-grid{align-items:start}.featured-project .project-desc{margin-bottom:16px}
+.project-art{min-height:240px}.project-art svg{max-height:240px}.reward-cover{display:block;text-decoration:none;background:linear-gradient(130deg,var(--surface-soft),var(--wash));padding:10px 0}.reward-cover svg{display:block;width:100%;max-width:none;max-height:none;height:auto}.cover-eyebrow{font:600 9px 'DM Sans',sans-serif;letter-spacing:1.6px;fill:var(--purple)}.cover-title{font:600 27px 'Space Grotesk',sans-serif;letter-spacing:-.7px;fill:var(--text)}.cover-label{font:500 11px 'DM Sans',sans-serif;fill:var(--muted)}.cover-note{font:400 9px 'DM Sans',sans-serif;fill:var(--soft)}.project-body h3 a{text-decoration:none}.project-body h3 a:hover{color:var(--blue)}.case-study-link{display:inline-flex;align-items:center;gap:17px;margin-top:23px;padding:11px 16px;background:var(--wash);color:var(--blue);border:1px solid var(--border);border-radius:8px;text-decoration:none;font-size:13px;font-weight:700}.case-study-link:hover{border-color:var(--blue)}details{border:0;padding-top:4px}summary{font-weight:600}details[open] p{padding:13px 15px;border-radius:8px;background:var(--surface-soft)}.project-card{display:flex;flex-direction:column}.project-body{flex:1;display:flex;flex-direction:column}.project-grid{align-items:stretch}.project-card .project-desc{margin-bottom:16px}.project-body details{margin-bottom:23px}.case-study-link{margin-top:auto;align-self:flex-start}
 @media(max-width:900px){.hero{padding-block:65px 75px}.site-nav{gap:14px}}
 @media(max-width:640px){.header-inner{gap:14px}.site-nav{gap:12px}.site-nav a{font-size:12px}.site-nav .contact-link{padding:7px 9px}#theme-toggle{font-size:11px;padding:7px 10px}.project-art{min-height:190px}.reward-cover{min-height:0}.hero{padding-top:48px}.hero-actions{gap:20px}.intro{line-height:1.8}}
 </style><style>.project-art{aspect-ratio:2/1;min-height:0;padding:0}.project-art svg{width:100%;max-width:100%;max-height:100%}.reward-cover svg{height:100%}</style><style>.animated-reward-cover{position:relative;background:linear-gradient(135deg,var(--surface-soft),var(--wash));aspect-ratio:2/1;padding:0;overflow:hidden}.animated-reward-cover picture,.animated-reward-cover img{display:block;width:100%;height:100%;object-fit:contain}.cover-subject{position:absolute;bottom:7%;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transform:translateX(-50%)}.cover-subject.social{left:27%}.cover-subject.monetary{left:72%}</style></head>
@@ -239,32 +243,12 @@
 <a class="text-link" href="#beyond">A little beyond research ↗</a>
 </div>
 </div>
-<aside aria-label="Research philosophy illustration" class="hero-aside">
-<div class="aside-top"><span>Field notes</span><span>01 / 03</span></div>
-<svg aria-label="A conceptual diagram connecting questions, evidence, and insights" class="aside-art" role="img" viewbox="0 0 280 230">
-<defs>
-<lineargradient id="lineGradient" x1="0" x2="1" y1="0" y2="1">
-<stop offset="0" stop-color="var(--blue)"></stop>
-<stop offset="1" stop-color="var(--purple)"></stop>
-</lineargradient>
-</defs>
-<path d="M61 68 C128 15 166 35 220 90 S177 185 110 182 S22 138 61 68" fill="none" opacity=".75" stroke="url(#lineGradient)" stroke-width="1.5"></path>
-<path d="M61 68 L220 90 L110 182 Z" fill="none" opacity=".7" stroke="#6F8294" stroke-dasharray="4 6" stroke-width="1.2"></path>
-<circle cx="61" cy="68" fill="var(--blue)" r="10"></circle>
-<circle cx="220" cy="90" fill="var(--purple)" r="10"></circle>
-<circle cx="110" cy="182" fill="var(--blue)" r="10"></circle>
-<circle cx="61" cy="68" fill="none" opacity=".25" r="23" stroke="var(--blue)"></circle>
-<circle cx="220" cy="90" fill="none" opacity=".25" r="23" stroke="var(--purple)"></circle>
-<circle cx="110" cy="182" fill="none" opacity=".25" r="23" stroke="var(--blue)"></circle>
-<g fill="var(--muted)" font-family="DM Sans, sans-serif" font-size="11">
-<text x="21" y="32">ASK</text>
-<text x="215" y="52">TEST</text>
-<text x="127" y="217">CONNECT</text>
-</g>
-</svg>
-<div class="aside-caption">From better questions to clearer insights.</div>
-<p class="aside-sub">Curiosity guides the question. Evidence shapes the answer.</p>
-</aside>
+<div class="hero-portrait">
+<span aria-hidden="true" class="portrait-ring"></span>
+<img alt="Yanni Jiang smiling, leaning on a railing in warm sunlight" class="portrait-img" decoding="async" fetchpriority="high" height="360" src="assets/images/yanni.webp" width="360"/>
+<span aria-hidden="true" class="portrait-dot a"></span>
+<span aria-hidden="true" class="portrait-dot b"></span>
+</div>
 </section>
 <section aria-labelledby="projects-title" class="projects container" id="projects">
 <div class="section-heading">
@@ -307,14 +291,14 @@
 </div>
 <div class="project-body">
 <div class="project-type">02 / Applied research</div>
-<h3>Understanding Founder Needs at Boxsy</h3>
-<p class="project-desc">Exploring founder workflows, adoption barriers, and opportunities to make an AI-powered platform more useful.</p>
-<div class="tags"><span class="tag">User research</span><span class="tag">Surveys</span><span class="tag">Competitive analysis</span></div>
+<h3>All-in-one, or one more thing to manage?</h3>
+<p class="project-desc">How early-stage founders experience an AI-powered, all-in-one operations tool, and whether that differs by fundraising stage.</p>
+<div class="tags"><span class="tag">User research</span><span class="tag">Segmented surveys</span><span class="tag">Competitive analysis</span><span class="tag">SaaS</span></div>
 <details>
 <summary>Project snapshot</summary>
-<p>Applied research combining founder feedback, survey evidence, and competitive analysis to inform product positioning and research priorities. The full case study will be added after the findings are finalized for public sharing.</p>
+<p>In a client study for an AI-powered operations platform for startup founders (name withheld), coded feedback from 10 pilot founders and two audience-specific surveys (20 analyzable responses) pointed to three recurring sources of burden: uncertainty about what to do next, manual upkeep of information, and switching between tools. Most prospective founders preferred one platform to separate tools, yet few stated an intent to sign up, and the current user most attached to the product was not raising, suggesting that “not raising” is not one group. These are directional signals. Client project through Texas Venture Labs at UT Austin.</p>
 </details>
-</div>
+<a class="case-study-link" href="all-in-one-or-one-more-thing-to-manage.html">Read the case study <span aria-hidden="true">↗</span></a></div>
 </article>
 </div>
 </section>
